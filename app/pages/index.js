@@ -100,12 +100,11 @@ const Home = ({ randomContributors }) => {
                 <string className="font-bold">Serverコードを直接Componentにインポート可能</string>です。
               </FeatureIcon>
               <FeatureIcon icon="lighteningBolt">
-                Blitzアプリは、<string className="font-bold">セットアップ済みのアプリを提供します！</string>
+                Blitzアプリは、<string className="font-bold">すべてセットアップ済みのアプリを提供します！</string>
                 例えば、ESLint、Prettier、Jestや、ユーザーの会員登録、ログイン、パスワードリセットなど。
               </FeatureIcon>
               <FeatureIcon icon="graphUp">
                 非常に柔軟でありながら、デフォルトの設定や規約を提供します。（ルーティング、ファイル構造、認証など）
-                {/*ルーティング、ファイル構造、認証といった設定・規約を提供しつつ、高い柔軟性も兼ね備えています。*/}
               </FeatureIcon>
             </div>
             <div className="grid w-full gap-5 px-6 mx-auto text-white xl:gap-10 max-w-7xl lg:grid-cols-2">
