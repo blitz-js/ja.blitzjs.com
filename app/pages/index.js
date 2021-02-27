@@ -52,13 +52,12 @@ const Home = ({ randomContributors }) => {
                     The Fullstack React Framework
                   </h2>
                   <p className="text-lg xl:text-xl xl:font-medium text-off-white lg:text-transparent lg:bg-clip-text lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue xl:w-4/5">
-                    Blitz is a batteries-included framework that's inspired by Ruby on Rails, is
-                    built on Next.js, and features a "Zero-API" data layer abstraction that
-                    eliminates the need for REST/GraphQL.
+                    Blitz は Ruby on Rails にインスパイアされたパワフルなフレームワークです。
+                    REST/GraphQLが不要な "Zero-API" Data Layer、Build in Next.js が特徴です。
                   </p>
                   <div className="flex space-x-4">
                     <ButtonLink className="w-2/3 lg:w-auto rounded-tl-xl" href="/docs/get-started">
-                      Try Blitz in Under 5 Mins
+                      5分でBlitzを起動
                     </ButtonLink>
                     <ButtonLink
                       href="https://github.com/blitz-js/blitz"
@@ -95,18 +94,15 @@ const Home = ({ randomContributors }) => {
             </div>
             <div className="z-10 px-6 mx-auto space-y-12 text-lg text-center text-white lg:space-y-0 lg:space-x-12 lg:flex lg:text-left max-w-7xl xl:font-mediumxl:text-xl">
               <FeatureIcon icon="layers">
-                “Zero-API” data layer lets you{" "}
-                <strong>import server code directly into your components</strong> instead of having
-                to manually add API endpoints and do client-side fetching and caching.
+                “Zero-API” Data Layer は、API エンドポイントの追加やClientでのFetch・キャッシュの代わりとして、
+                <string className="font-bold">Serverコードを直接Componentにインポート可能</string>です。
               </FeatureIcon>
               <FeatureIcon icon="lighteningBolt">
-                New Blitz apps come with all the{" "}
-                <strong>boring stuff already set up for you!</strong> Like ESLint, Prettier, Jest,
-                user sign up, log in, and password reset.
+                Blitzアプリは、<string className="font-bold">退屈な設定をセットアップしたアプリを提供します。</string>
+                例えば、ESLint、Prettier、Jestや、ユーザーの会員登録、ログイン、パスワードリセットなど。
               </FeatureIcon>
               <FeatureIcon icon="graphUp">
-                Provides <strong>helpful defaults and conventions</strong> for things like routing,
-                file structure, and authentication while also being extremely flexible.
+                ルーティング、ファイル構造、認証といった設定・規約を提供しつつ、高い柔軟性も兼ね備えています。
               </FeatureIcon>
             </div>
             <div className="grid w-full gap-5 px-6 mx-auto text-white xl:gap-10 max-w-7xl lg:grid-cols-2">
