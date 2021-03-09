@@ -204,11 +204,11 @@ const Home: BlitzPage = () => {
 ## モデルのためのコード自動生成 {#scaffolding-code-for-our-models}
 
 Blitz には [`generate`](./cli-generate) という便利な CLI コマンドがありま
-す。ここでは、`generate`を使って 2 つのモデルを作成します
-。Question`と`Choice` の2つのモデルを作成する。Question` は質問のテキスト
-と選択肢のリストを持ちます。選択肢には、選択肢のテキスト、投票数、関連する
-質問が含まれます。Blitz は両方のモデルについて、ID、作成タイムスタンプ、最
-終更新タイムスタンプを自動的に生成します。
+す。ここでは、`generate`を使って `Question`（質問）と `Choice`（選択肢）
+の 2 つのモデルを作成します。 `Question` は質問のテキストと選択肢のリスト
+を持ちます。選択肢には、選択肢のテキスト、投票数、関連する質問が含まれます
+。Blitz は両方のモデルについて、ID、作成タイムスタンプ、最終更新タイムスタ
+ンプを自動的に生成します。
 
 #### Step1: `Question` モデルに関連する生成
 
@@ -216,8 +216,8 @@ Blitz には [`generate`](./cli-generate) という便利な CLI コマンドが
 blitz generate all question text:string
 ```
 
-ターミナルが表示されたら、**Enter** を押して `prisma migrate` (マイグレー
-ション) を実行してください。名前を聞かれるので、"add question" と入力して
+ターミナルが表示されたら、**Enter** を押して `prisma migrate` （マイグレー
+ション） を実行してください。名前を聞かれるので、"add question" と入力して
 ください。
 
 ```
@@ -749,7 +749,7 @@ export default resolver.pipe(
 
 ブラウザで `/questions` をチェックしてみてください。 **最高です！**
 
-## 質問に投票させよう! {#let-people-vote-on-questions}
+## 質問に投票させよう！ {#let-people-vote-on-questions}
 
 エディタで `app/pages/questions/[questionId].tsx` を開いてください。まず、
 このページをすこし改善します。
@@ -777,7 +777,7 @@ export default resolver.pipe(
   src="https://user-images.githubusercontent.com/24858006/80387990-3c3d8b80-88a1-11ea-956a-5be85f1e8f12.png"
 />
 
-#### 投票を追加する時です!
+#### 投票を追加する時です！
 
 まず、`app/choices/mutations/updateChoice.ts` を開き、zod スキーマを更新し
 、投票数を追加する必要があります。
@@ -856,7 +856,7 @@ export const Question = () => {
 //...
 ```
 
-最後に、新しい `button` にその関数を呼び出すようにしましょう!
+最後に、新しい `button` にその関数を呼び出すようにしましょう！
 
 ```tsx
 <button onClick={() => handleVote(choice.id)}>Vote</button>
@@ -979,13 +979,13 @@ export default resolver.pipe(
 
 ## まとめ {#conclusion}
 
-🥳 おめでとうございます。あなただけの Blitz アプリが完成しました。楽しく遊
+おめでとうございます！🥳 あなただけの Blitz アプリが完成しました。楽しく遊
 んだり、友達と共有したりしてみてください。このチュートリアルは終了しました
 が、投票アプリをより良いものにしてみませんか？次のことを試してみましょう。
 
-- スタイリングの追加 (ヒントは `blitz install tailwind` や
+- スタイリングの追加 (ヒント: `blitz install tailwind` や
   `blitz install chakra-ui` を試してみてください)
-- 投票に関する統計情報をさらに表示する
+- 投票に関する統計情報を追加する
 - [Render](./deploy-render) または [Vercel](./deploy-vercel) をつかったホ
   スティング
 
@@ -994,4 +994,4 @@ export default resolver.pipe(
 
 [discord.blitzjs.com](https://discord.blitzjs.com)にアクセスしてください。
 そして、**#built-with-with-blitz** チャンネルにリンクを投稿して、みんなで
-共有しましょう!
+共有しましょう！
