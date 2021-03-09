@@ -204,9 +204,9 @@ const Home: BlitzPage = () => {
 ## モデルのためのコード自動生成 {#scaffolding-code-for-our-models}
 
 Blitz には [`generate`](./cli-generate) という便利な CLI コマンドがありま
-す。ここでは、`generate`を使って `Question`（質問）と `Choice`（選択肢）
-の 2 つのモデルを作成します。 `Question` は質問のテキストと選択肢のリスト
-を持ちます。選択肢には、選択肢のテキスト、投票数、関連する質問が含まれます
+す。ここでは、`generate`を使って `Question`（質問）と `Choice`（選択肢）の
+2 つのモデルを作成します。 `Question` は質問のテキストと選択肢のリストを持
+ちます。選択肢には、選択肢のテキスト、投票数、関連する質問が含まれます
 。Blitz は両方のモデルについて、ID、作成タイムスタンプ、最終更新タイムスタ
 ンプを自動的に生成します。
 
@@ -478,7 +478,7 @@ export const QuestionsList = () => {
 
 次に、同様の修正を `app/questions/components/QuestionForm.tsx` にも適用し
 てみましょう。フォームの投稿において、`LabeledTextField` の `name` を
-`"text"` に置き換えます。
+`text` に置き換えます。
 
 ```diff
 export function QuestionForm<S extends z.ZodType<any, any>>(
@@ -562,10 +562,10 @@ export default resolver.pipe(
 )
 ```
 
-この Mutation は、問題自体を削除する前に、問題に関連する選択肢を削除するよ
-うになりました。
+この Mutation は、`Question` 自体を削除する前に、`Question` に関連する
+`Choice` を削除するようになりました。
 
-#### 質問の作成、更新、削除を試そう
+#### 質問の作成・更新・削除を試そう
 
 いいですね！localhost が実行されていることを確認してください。実行されてい
 ない場合、ターミナルで `blitz dev` を実行し、`localhost:3000/questions` に
