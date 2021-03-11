@@ -59,7 +59,7 @@ const Home = ({ randomContributors }) => {
                   </p>
                   <div className="flex space-x-4">
                     <ButtonLink className="w-2/3 lg:w-auto rounded-tl-xl" href="/docs/get-started">
-                      5分でBlitzを起動
+                      5分でBlitzを始める
                     </ButtonLink>
                     <ButtonLink
                       href="https://github.com/blitz-js/blitz"
