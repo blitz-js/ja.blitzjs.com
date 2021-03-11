@@ -135,52 +135,50 @@ const Home = ({ randomContributors }) => {
                 />
                 <Scrollbar className="lg:hidden" thumbHeight="4px">
                   <div className="grid pb-4 ml-6 features-grid lg:gap-y-14">
-                    <Feature title="Fullstack & Monolithic">
+                    <Feature title="フルスタック & モノリシック">
                       <p>
-                        Includes everything from the database to your frontend all inside a single
-                        app. Only one thing to develop. Only one thing to deploy.
+                        1つのアプリで、データベースからフロントエンドまですべてを実現します。
+                        あなたが開発するのはたった1つだけ。Deployするのも1つだけです。
                       </p>
-                      <p>And you can deploy to a server or serverless.</p>
+                      <p>また、サーバー / サーバーレスへのDeployが可能です。</p>
                     </Feature>
-                    <Feature title="API Not Required">
+                    <Feature title="API不要">
                       <p>
-                        Instead of fetching data from the backend, you import your server code
-                        directly into your components. At build time, that function import is
-                        swapped out with an auto generated HTTP API.
+                        バックエンドからデータをFetchする必要はなく、ServerコードをComponentに直接インポートします。
+                        ビルド時に、関数のインポートは自動生成のHTTP APIに置き換えられます。
                       </p>
-                      <p>The generated API can also be used by apps & third-parties.</p>
+                      <p>生成されたAPIは、アプリ・サードパーティが利用可能です。</p>
                     </Feature>
-                    <Feature title="Loose Opinions">
+                    <Feature title="Loose Opinions - ゆるい意見">
                       <p>
-                        The out-of-the-box experience guides you on a path perfect for most
-                        applications. But when you need to go off the beaten path, you are totally
-                        free to do so.
+                        すぐに使えるエクスペリエンスが、ほぼすべてのアプリケーションに最適な方法を案内します。
+                        しかし、道を逸れたいときには100%自由に行動できます。
                       </p>
                       <p>
-                        And nearly everything is pluggable. For example, we don't mandate which
-                        styling or form libraries you use.
+                        ほぼすべてがプラグイン可能です。
+                        例えば、スタイリングやフォームライブラリはどれを使うか強制するものはありません。
                       </p>
                     </Feature>
-                    <Feature title="Convention over Configuration">
+                    <Feature title="設定より規約">
                       <p>
-                        Blitz does all the boring set up and configuration for you. The common
-                        project structure and architectural patterns make it easy to move from one
-                        Blitz app to another and immediately feel at home.
+                        つまらないセットアップ、設定はすべてBlitzが行います。
+                        共通のプロジェクト構造とアーキテクチャパターンにより、
+                        Blitzのアプリから別のアプリへの移行は簡単で、一息で終わらせることができます。
                       </p>
                     </Feature>
-                    <Feature title="Easy to Start, Easy to Scale">
-                      <p>Easy for beginners and easy to migrate existing Next.js apps to Blitz.</p>
+                    <Feature title="始めるのは簡単で、拡張も簡単">
+                      <p>既存のNext.jsアプリからBlitzへの移行は、初心者でもできるくらい簡単です。</p>
                       <p>
-                        Easy to scale in all forms: lines of code, number of people working in the
-                        codebase, and code execution.
+                        それはコードの行数、コードベースで作業する人数、コードの実行数に関わらず、
+                        あらゆる形態でのスケールアップが可能です。
                       </p>
                     </Feature>
-                    <Feature title="Stability">
+                    <Feature title="安定性">
                       <p>
-                        Once we reach version 1.0, we'll switch to a stable, predictable release
-                        cycle with multiple channels like stable, LTS, and beta.
+                        バージョン1.0に到達したら、リリースサイクルを安定した予測可能なものに切り替え、
+                        安定版 / LTS / ベータ版などの複数チャンネルを用意します。
                       </p>
-                      <p>We are taking a lot inspiration from Ember in this regard.</p>
+                      <p>この点については、Emberから多くのインスピレーションを得ています。</p>
                     </Feature>
                   </div>
                 </Scrollbar>
