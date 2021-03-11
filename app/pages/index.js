@@ -208,7 +208,7 @@ const Home = ({ randomContributors }) => {
             <div className="relative flex flex-col px-6 mx-auto text-white lg:flex-row max-w-7xl space-y-14 lg:space-x-24 lg:space-y-0 xl:space-x-40">
               <div className="space-y-14 lg:w-1/2">
                 <h2 className="z-10 font-medium text-transparent text-5xl-squashed font-secondary bg-clip-text bg-gradient-to-r from-blue-gradient-white to-blue-gradient-light-blue xl:text-6xl">
-                  The Blitz Community - Our Most Important Aspect
+                  Blitzコミュニティ - 私たちが最も大切にしていること
                 </h2>
                 <div className="z-10 grid grid-cols-5 gap-1 md:grid-cols-6 lg:grid-cols-5 grid-rows-8 overflow-clip">
                   {randomContributors.map((contributor) => (
@@ -233,17 +233,17 @@ const Home = ({ randomContributors }) => {
                 <div className="z-10 flex flex-col justify-between space-y-6 lg:justify-end">
                   <div className="flex flex-col space-y-6 lg:h-auto lg:text-transparent text-off-white">
                     <p className="lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue lg:bg-clip-text">
-                      Our community is warm, safe, diverse, inclusive, and fun! LGBTQ+, women, and
-                      minorities are especially welcome.
+                      私たちのコミュニティは、暖かく、安全で、多様で、包括的で、楽しいものです。
+                      LGBTQ+、女性、マイノリティの方は特に歓迎します。
                     </p>
                     <p className="lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue lg:bg-clip-text">
-                      Please read our{" "}
+                      ぜひ{" "}
                       <Link href="/docs/code-of-conduct" passHref>
                         <StyledLink className="underline text-off-white hover:text-blue-light">
-                          Code of Conduct
+                          行動規範
                         </StyledLink>
                       </Link>
-                      .
+                      {" "}を読んでください。
                     </p>
                   </div>
                   <ButtonLink
@@ -252,22 +252,23 @@ const Home = ({ randomContributors }) => {
                     rel="noopener noreferrer"
                     className="rounded-bl-none rounded-xl lg:w-max"
                   >
-                    Join our Discord Community
+                    Discord コミュニティに参加する
                   </ButtonLink>
                 </div>
                 <div className="z-10 flex flex-col justify-between space-y-6 lg:justify-start">
                   <div className="flex flex-col space-y-6 lg:h-auto lg:text-transparent text-off-white lg:bg-clip-text lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue">
                     <p className="lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue lg:bg-clip-text">
-                      We are all in this together, from the youngest to the oldest. We are all more
-                      similar than we are different. We love to work together.
+                      私たちは、若い人から年配の人まで、みんな一緒です。<br className="hidden lg:inline"/>
+                      私たちは皆、違うというよりもただ似ています。<br className="hidden lg:inline"/>
+                      私たちは一緒に働くことが大好きです。
                     </p>
                     <p className="lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue lg:bg-clip-text">
-                      We invite you to help make Blitz the best framework we've ever had!
+                      Blitzを最高のフレームワークにするため、ぜひあなたの力を貸してください！
                     </p>
                   </div>
                   <Link href="/docs/contributing" passHref>
                     <ButtonLink className="rounded-bl-none rounded-xl lg:w-max">
-                      Learn How to Contribute
+                      コントリビュートのやり方を学ぶ
                     </ButtonLink>
                   </Link>
                 </div>
@@ -275,7 +276,7 @@ const Home = ({ randomContributors }) => {
             </div>
             <div className="z-10 w-full mx-auto text-white space-y-7 max-w-7xl">
               <h2 className="px-6 text-2xl font-medium text-white font-secondary lg:text-3xl">
-                Architecture Diagram
+                アーキテクチャ図
               </h2>
               <div className="w-full">
                 <Scrollbar className="lg:hidden" thumbHeight="4px" thumbColor="white">
