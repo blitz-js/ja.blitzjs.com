@@ -126,7 +126,7 @@ const Home = ({ randomContributors }) => {
 
             <div className="relative w-full mx-auto space-y-10 lg:space-y-20 xl:space-y-36 max-w-7xl">
               <h2 className="px-6 text-3xl font-semibold xl:text-5xl xl:w-1/2">
-                Everything You Need For Production Apps
+                Productionアプリに必要なすべてを
               </h2>
               <div className="w-full">
                 <Hand
