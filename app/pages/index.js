@@ -305,29 +305,26 @@ const Home = ({ randomContributors }) => {
                   自分でホストするユーザー名とパスワード、Auth0のようなサードパーティを含む、あらゆるIDプロバイダーで動作します。
                 </FeatureIconTitle>
                 <FeatureIconTitle icon="database" title="データベースに依存しない">
-                  好きなデータベースを使うことができます。
-                  Prisma 2 はデフォルトのデータベース・クライアントですが、これを外して Fauna や DynamoDB など他のものを使うこともできます。
-                  You can use any database you want. Prisma 2 is the default database client, but
-                  you can remove that and use anything else like Fauna or DynamoDB.
+                  あなたは好きなデータベースを使えます。
+                  Prisma 2 はデフォルトのデータベースクライアントですが、これを外して Fauna や DynamoDB など他のものを使うこともできます。
                 </FeatureIconTitle>
-                <FeatureIconTitle icon="fileCode" title="Recipes">
-                  One command to install code and/or packages into your blitz app. Examples: `blitz
-                  install tailwind` or `blitz install chakra-ui`. Recipes can be created by anyone.
+                <FeatureIconTitle icon="fileCode" title="レシピ">
+                  コードやパッケージをBlitzアtプリにインストールするためのコマンドです。
+                  （ex: `blitz install tailwind` や `blitz install chakra-ui`）
+                  レシピは誰でも作成することができます。
                 </FeatureIconTitle>
-                <FeatureIconTitle icon="plugin" title="Backend Architecture">
-                  Blitz is set up for server intensive tasks like sending emails, cron jobs,
-                  background processing, generating PDFs, etc. Currently we have minimal backend
-                  guides, but are working on developing more patterns and adding more docs.
+                <FeatureIconTitle icon="plugin" title="バックエンドアーキテクチャ">
+                  Blitz は、サーバーに負荷のかかる作業のために設定されています。（電子メールの送信、cronジョブ、バックグラウンド処理、PDFの生成など）
+                  現在、最小限のバックエンドガイドになっていますが、より多くのパターン開発とドキュメントの追加に取り組んでいます。
                 </FeatureIconTitle>
-                <FeatureIconTitle icon="typescript" title="First Class Typescript Support">
-                  Blitz is built with Typescript and the Blitz data layer is fully end-to-end
-                  typesafe. All types are completely static without needing a separate type
-                  generation process!
+                <FeatureIconTitle icon="typescript" title="Typescriptのファーストクラスサポート">
+                  Blitz は Typescript で構築されており、Blitz のデータレイヤーは100%エンドツーエンドでありタイプセーフです。
+                  すべての型は完全に静的で、別の型生成プロセスを必要としません！
                 </FeatureIconTitle>
                 <FeatureIconTitle icon="scaffolding" title="Code Scaffolding">
-                  It’s early days, but Blitz code scaffolding is going to be extremely powerful.
-                  Great for both prototyping and for building real apps. Will be able to override
-                  any template and customize for your project.
+                  まだ始まったばかりですが、Blitzの Code Scaffolding は非常に強力なものになるでしょう。
+                  プロトタイピングにも、実際のアプリケーションの構築にも最適です。
+                  テンプレートを上書きして、自分のプロジェクトに合わせてカスタマイズできるようになります。
                 </FeatureIconTitle>
               </div>
             </div>
