@@ -5,7 +5,7 @@ sidebar_label: チュートリアル
 
 このチュートリアルでは、基本的な投票アプリケーションの作成方法を説明します。
 
-ここでは、すでに Blitz がインストールされている( [Blitz のインストール方法](./get-started]) を参照ください)ことを前提とします。Blitz がインストールされているかどうかは、ターミナルで以下のコマンドを実行することでわかります。
+ここでは、すでに Blitz がインストールされている( [Blitz のインストール方法](./get-started]) を参照ください)ことを前提とします。Blitz がインストールされているかどうかは、コマンドラインで以下のコマンドを実行することでわかります。
 
 ```sh
 blitz -v
@@ -15,13 +15,13 @@ Blitz がインストールされていれば、そのバージョンが表示�
 
 ## 新しい Blitz アプリの作成 {#creating-a-new-app}
 
-ターミナルで`cd` コマンドを用い、アプリを作成したいフォルダに移動し、次のコマンドを実行します。
+コマンドラインで`cd` コマンドを用い、アプリを作成したいディレクトリに移動し、次のコマンドを実行します。
 
 ```sh
 blitz new my-blitz-app
 ```
 
-Blitz は現在のフォルダ内に `my-blitz-app` フォルダを作成します。フォームライブラリを選択するように促されます。このチュートリアルでは、推奨されるライブラリ `React Final Form` を選択します。
+Blitz は現在のディレクトリ内に `my-blitz-app` ディレクトリを作成します。すると、フォームライブラリを選択するように促されます。このチュートリアルでは、推奨しているライブラリ `React Final Form` を選択します。
 
 それでは、`blitz new`が作成したものを見てみましょう。
 
@@ -93,7 +93,7 @@ my-blitz-app
 
 - `app/` ディレクトリは、ページや API ルートなど、プロジェクトの多くのものが配置される場所です。
 
-- `app/pages/` ディレクトリは、主要なページフォルダです。Next.js を使ったことがある人なら、この違いにすぐに気づくでしょう。Blitz では多くの`pages`フォルダを持つことができ、それらはビルド時にマージされます。
+- `app/pages/` ディレクトリは、主要なページディレクトリです。Next.js を使ったことがある人なら、この違いにすぐに気づくでしょう。Blitz では多くの`pages`ディレクトリを持つことができ、それらはビルド時にマージされます。
 
 - `app/core/` ディレクトリは、アプリ全体で使用されるコンポーネントやフックなどを置く主な場所です。
 
@@ -101,21 +101,21 @@ my-blitz-app
 
 - `public/` ディレクトリは、静的アセットを置く場所です。アプリで使用する画像・ファイル・動画がある場合は、ここに配置します。
 
-- `.babelrc.js`, `.env`など (つまり、ドットから始まるファイル) は、JavaScript ツールの様々な設定ファイルです。
+- `.babelrc.js`、`.env`など (つまり、ドットから始まるファイル) は、JavaScript ツールの様々な設定ファイルです。
 
 - `blitz.config.js` は、Blitz の高度なカスタム設定を行うためのファイルです。フォーマットは`next.config.js` と同じです。
 
-- `tsconfig.json` は、 TypeScript の推奨設定ファイルです。
+- `tsconfig.json` は、TypeScript の設定ファイルです。推奨の初期設定がされています。
 
 ## 開発サーバー {#the-development-server}
 
-それでは、`my-blitz-app` フォルダを確認しましょう。まだ `my-blitz-app` フォルダが存在しない場合は、次のコマンドを実行してください。
+それでは、`my-blitz-app` ディレクトリを確認しましょう。まだ `my-blitz-app` ディレクトリが存在しない場合は、次のコマンドを実行してください。
 
 ```sh
 blitz dev
 ```
 
-ターミナルには、次のような出力が表示されます。
+コマンドラインには、次のような出力が表示されます。
 
 ```sh
 ✔ Compiled
@@ -133,16 +133,16 @@ Blitz のロゴが入ったウェルカムページが表示されます。う�
 
 ## ユーザーとして登録する {#sign-up-as-a-user}
 
-Blitz アプリは、ユーザーの Sign Up(会員登録)やログインがすでに設定されている状態で作成されています。
-早速試してみましょう。**Sign Up** ボタンをクリックします。任意のメールアドレスとパスワードを入力して、**Create Account**をクリックします。そうすると、あなたのユーザ `id` と `role` が表示されるホームページにリダイレクトされます。
+Blitz アプリは、ユーザーのサインアップやログイン機能がすでに設定されています！
+早速試してみましょう。**Sign Up** ボタンをクリックします。任意のメールアドレスとパスワードを入力して、**Create Account**をクリックします。そうすると、あなたのアカウントの `id` と `role` が表示されているページにリダイレクトされます。
 
-必要であれば、ログアウトしてからログインし直すこともできます。あるいは、ログインページの**Forgot your password?** をクリックして、その流れを試してみてください。
+必要であれば、ログアウトしてからログインし直すこともできます。あるいは、ログインページの **Forgot your password?** をクリックして、パスワードを忘れた場合のフローを試してみてください。
 
 ## 最初のページの実装 {#write-your-first-page}
 
 次に、最初のページを作成してみましょう。
 
-ファイル `app/pages/index.tsx` を開き、`Home` コンポーネントの内容をこれに置き換えます。
+`app/pages/index.tsx` を開き、`Home` コンポーネントの内容を次のように変更します。
 
 ```tsx
 //...
@@ -162,27 +162,27 @@ const Home: BlitzPage = () => {
 //...
 ```
 
-保存するとブラウザでページが更新されるはずです。これは好きなだけカスタマイズを追加できます。準備ができたら、次のセクションに進みましょう。
+保存するとブラウザでページが更新されるはずです。このようにしてページを好きなようにカスタマイズできます。準備ができたら、次のセクションに進みましょう。
 
 ## データベースの設定 {#database-setup}
 
-嬉しいことに、SQLite を用いたデータベースの設定がすでに作成されています。ターミナルで`blitz prisma studio` を実行すると、データベース内のデータを見ることができる Web インターフェースが開きます。
+嬉しいことに、SQLite データベースが設定済みです。コマンドラインで`blitz prisma studio` を実行すると、データベース内のデータを見ることができる Web インターフェースが開きます。
 
-最初の本格的なプロジェクトを始めるときには、PostgreSQL のようなスケーラブルなデータベースを使用した方が良いでしょう。詳細については、[データベースの概要](database-overview) を参照してください。今のところ、デフォルトの SQLite データベースを使用します。
+本格的なプロジェクトを始めるときには、運用の途中でデータベースの切り替えの手間を省くため、初めからスケーラブルなデータベース（例えば、PostgreSQL など）を使用した方が良いでしょう。詳細については、[データベースの概要](database-overview) を参照してください。このチュートリアルでは、デフォルトの SQLite データベースを使用します。
 
 ## モデルのコードの自動生成 {#scaffolding-code-for-our-models}
 
-Blitz には [`generate`](./cli-generate) という便利な CLI コマンドがあります。ここでは、`generate`を使って `Question`（質問）と `Choice`（選択肢）の 2 つのモデルを作成します。 `Question` は質問のテキストと選択肢のリストを持ちます。選択肢には、選択肢のテキスト、投票数、関連する質問が含まれます。Blitz は両方のモデルについて、ID、作成タイムスタンプ、最終更新タイムスタンプを自動的に生成します。
+Blitz には [`generate`](./cli-generate) というコード自動生成に便利な CLI コマンドがあります。ここでは、`generate`を使って `Question`（質問）と `Choice`（選択肢）の 2 つのモデルを作成します。 `Question` は質問のテキストと選択肢のリストを持ちます。`Choice`には、選択肢のテキスト、投票数、選択肢に紐付く質問が含まれます。Blitz は両方のモデルについて、ID、作成タイムスタンプ、最終更新タイムスタンプを自動的に生成します。
 
 #### Step1: `Question` モデルに関連する生成
 
-次のコマンドで生成しましょう。
+次のコマンドで`Question` モデルを生成しましょう。
 
 ```sh
 blitz generate all question text:string
 ```
 
-ターミナルが表示されたら、**Enter** を押して `prisma migrate` （マイグレーション） を実行してください。名前を聞かれるので、"add question" と入力してください。
+コマンドの入力を促されたら、**Enter** を押して `prisma migrate` （マイグレーション） を実行してください。マイグレーションの名前を聞かれるので、"add question" と入力してください。
 
 ```
 CREATE    app/pages/questions/[questionId].tsx
@@ -227,7 +227,7 @@ Everything is now in sync.
 
 `generate` コマンドに `all` 型を指定すると、モデルとクエリ、Mutation、ページファイルが生成されます。利用可能な型のオプションの一覧は [Blitz generate](./cli-generate) のページを参照してください。
 
-#### Step2: 対応するクエリと Mutation を持つ `Choice` モデルの生成
+#### Step2: `Choice` モデルとそれに対応するクエリと Mutation の生成
 
 今回は `Choice` モデルのページを生成する必要がないので、`resource` の型を渡すことにします。
 
@@ -274,9 +274,9 @@ model Question {
 ```
 
 そして、`blitz prisma generate`を実行して、スキーマの変更に合わせて prisma クライアントを更新します。
-これはデータベースの `Question` モデルに実際のフィールドが追加されていないため、データベースのマイグレーションを必要としません。
+今回はデータベースの `Question` モデルに実際のフィールドが追加されていないため、データベースのマイグレーションを必要としません。
 
-## Prisma データベースクライアントで遊ぶ {#playing-with-the-prisma-database-client}
+## Prisma データベースクライアントを試す {#playing-with-the-prisma-database-client}
 
 ここで、対話型の Blitz コンソールを使って、Blitz が提供する Prisma データベースクライアントで遊んでみましょう。Blitz コンソールを起動するには、次のコマンドを使用します。
 
@@ -284,7 +284,7 @@ model Question {
 blitz console
 ```
 
-コンソールに入ったら、データベースクライアントを調べてみましょう。
+コンソールに入ったら、データベースクライアントを使ってみましょう。
 
 ```sh
 # 質問はまだ存在していません。
@@ -317,7 +317,7 @@ undefined
   text: "What's up?"
 }
 
-# db.question.findMany()はデータベース内のすべての質問を表示するようになりました。
+# db.question.findMany()を再度実行すると、データベースに追加されたすべての質問を表示するようになりました。
 ⚡ > await db.question.findMany()
 [
   {
@@ -333,7 +333,7 @@ undefined
 
 <!-- prettier-ignore-start -->
 :::info
-アプリを再度実行する前に、生成されたコードの一部をカスタマイズする必要があります。最終的には、これらの修正は必要ありませんが、今のところは、いくつかの未解決の問題を回避する必要があります。
+アプリを再度実行する前に、生成されたコードの一部をカスタマイズする必要があります。将来的にはこれらの修正をする必要は無くなりますが、今のところはいくつかの未解決の問題を回避する必要があります。
 :::
 <!-- prettier-ignore-end -->
 
@@ -476,8 +476,8 @@ const UpdateQuestion = z
 
 [//]: # "Prismaがカスケード削除をサポートしたら、このセクションを削除する"
 
-Prisma はまだ "カスケード削除 "をサポートしていません。このチュートリアルでは、`Question` を削除する際に `Choice` データを削除しないことを意味します。
-これを手動で行うためには、生成された`deleteQuestion` Mutation を一時的に拡張する必要があります。テキストエディタで`app/questions/mutations/deleteQuestion.ts` を開き、関数本体の先頭に以下を追加してください。
+Prisma はまだ 「カスケード削除(特定のデータを削除したときに、関連するデータも一緒に削除する機能)」をサポートしていません。このチュートリアルにおける「カスケード削除の未対応」とは、`Question` を削除する際に `Choice` データを削除しないことを意味します。
+「`Question`に関連する`Choice`も一緒に削除する」ロジックを手動で実装するためには、生成された`deleteQuestion` Mutation を一時的に拡張する必要があります。テキストエディタで`app/questions/mutations/deleteQuestion.ts` を開き、関数本体の先頭に以下を追加してください。
 
 ```ts
 await db.choice.deleteMany({where: {questionId: id}})
@@ -504,7 +504,7 @@ export default resolver.pipe(
 
 #### 質問の作成・更新・削除を試そう
 
-いいですね！localhost が実行されていることを確認してください。実行されていない場合、ターミナルで`blitz dev` を実行し、`localhost:3000/questions` にアクセスしてください。問題の作成、編集、削除を試してみてください。
+いいですね！アプリが実行されていることを確認してください。実行されていない場合、コマンドラインで`blitz dev` を実行し、`localhost:3000/questions` にアクセスしてください。質問の作成、編集、削除を試してみてください。
 
 ## 質問フォームに選択肢を追加する {#adding-choices-to-the-question-form}
 
@@ -548,7 +548,7 @@ export function QuestionForm<S extends z.ZodType<any, any>>(
       />
 ```
 
-それから `app/questions/mutations/createQuestion.ts` を開き、Mutation で選択肢のデータが受け入れられるように zod スキーマを更新します。また、選択肢が作成されるように `db.question.create` コールを更新する必要があります。
+それから `app/questions/mutations/createQuestion.ts` を開き、Mutation で選択肢のデータが受け入れられるように zod スキーマを更新します。また、選択肢が作成されるように `db.question.create` の呼び出し処理を更新する必要があります。
 
 ```diff
 // app/questions/mutations/createQuestion.ts
@@ -579,12 +579,12 @@ export default resolver.pipe(
 
 #### お試し
 
-これで、`localhost:3000/questions/new` を開いて、新しい問題と選択肢を作成することができます。
+これで、`localhost:3000/questions/new` を開いて、新しい質問と選択肢を作成することができます。
 
 ## リストの選択 {#listing-choices}
 
-休憩です。ブラウザの `localhost:3000/questions` に戻って、作成したすべての問題を見てください。ここに質問の選択肢をリストアップしてみましょう。 まず、質問のクエリをカスタマイズする必要があります。
-Prisma では、ネストされた関係をクエリしたいことをクライアントに手動で知らせる必要があります。あなたの `getQuestion.ts` と `getQuestions.ts` ファイルを以下のように変更してください。
+休憩です。ブラウザの `localhost:3000/questions` に戻って、作成したすべての質問を見てください。これらの質問に、選択肢を一覧表示してみましょう。 まず、質問のクエリをカスタマイズする必要があります。
+Prisma では、ネストされたリレーションもクエリに含める場合には、手動で設定する必要があります。あなたの `getQuestion.ts` と `getQuestions.ts` ファイルを以下のように変更してください。
 
 ```diff
 // app/questions/queries/getQuestion.ts
@@ -646,7 +646,7 @@ export default resolver.pipe(
 )
 ```
 
-エディタでメインの問題ページ (`app/pages/questions/index.tsx`) に戻って、各問題の選択肢をリストアップしてみましょう。そして、このコードを `QuestionsList` の `Link` の下に追加してください。
+エディタでメインの質問ページ (`app/pages/questions/index.tsx`) に戻って、各質問の選択肢を一覧表示してみましょう。そして、このコードを `QuestionsList` の `Link` の下に追加してください。
 
 ```diff
 // app/pages/questions/index.tsx
@@ -677,9 +677,9 @@ export default resolver.pipe(
 
 エディタで `app/pages/questions/[questionId].tsx` を開いてください。まず、このページをすこし改善します。
 
-1. `<h1>Question {question.id}</h1>` を `<h1>{question.text}</h1>` に置き換える。
+1. `<h1>Question {question.id}</h1>` を `<h1>{question.text}</h1>` に置き換えます。
 
-2. `pre` 要素を削除し、先ほど書いた選択肢リストをコピーする。
+2. `pre` 要素を削除し、先ほど書いた選択肢リストをコピーします。
 
 ```tsx
 <ul>
@@ -737,7 +737,7 @@ export default resolver.pipe(
 </li>
 ```
 
-次に、更新した `updateChoice` Mutation をインポートして `handleVote` 関数を作成する。
+次に、更新した `updateChoice` Mutation をインポートして `handleVote` 関数を作成します。
 
 ```diff
 // app/pages/questions/[questionId].tsx
@@ -764,7 +764,7 @@ export const Question = () => {
   return (
 ```
 
-そして、`handleVote`の中で使用する関数 `refetch` を返すために質問 `useQuery` コールを更新する必要があります。
+そして、`handleVote`の中で使用する関数 `refetch` を返すために質問の `useQuery` コールを更新する必要があります。
 
 ```diff
 // app/pages/questions/[questionId].tsx
@@ -841,7 +841,7 @@ export const Question = () => {
 
 ## 最後に、既存の質問の編集の選択肢を許可しよう {#edit-choices-for-question}
 
-既存の問題の **Edit** ボタンをクリックすると、問題を作成するのと同じフォームを使用していることがわかります。これですでに完了です。あとは Mutation を更新するだけです。
+既存の質問の **Edit** ボタンをクリックすると、質問を作成するのと同じフォームを使用していることがわかります。これですでに完了です。あとは Mutation を更新するだけです。
 
 `app/questions/mutations/updateQuestion.ts` を開き、以下の変更を行ってください。
 
@@ -887,7 +887,7 @@ export default resolver.pipe(
 )
 ```
 
-[`upsert`](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#upsert) は、「この項目が存在すればそれを更新する、存在しなければ作成する」という意味です。質問を作成する際にユーザーが 3 つの選択肢を追加する必要がないので、このケースには最適です。後でユーザーが質問を編集して別の選択肢を追加した場合、ここに作成されます。
+[`upsert`](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#upsert) は、「この項目が存在すればそれを更新する、存在しなければ作成する」という意味です。質問を作成する際にユーザーが 3 つの選択肢を追加することを必須としていないので、このケースには最適です。後でユーザーが質問を編集して別の選択肢を追加した場合、ここに作成されます。
 
 ## まとめ {#conclusion}
 
@@ -897,6 +897,4 @@ export default resolver.pipe(
 - 投票に関する統計情報を追加する
 - [Render](./deploy-render) または [Vercel](./deploy-vercel) をつかったホスティング
 
-あなたのプロジェクトを世界中の Blitz コミュニティと共有したい場合、Discord 以上に良い場所はありません。
-
-[discord.blitzjs.com](https://discord.blitzjs.com)にアクセスしてください。そして、**#built-with-with-blitz** チャンネルにリンクを投稿して、みんなで共有しましょう！
+あなたのプロジェクトを世界中の Blitz コミュニティと共有したい場合、Discord 以上に良い場所はありません。[discord.blitzjs.com](https://discord.blitzjs.com)にアクセスしてください。そして、**#built-with-with-blitz** チャンネルにリンクを投稿して、みんなで共有しましょう！
