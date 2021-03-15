@@ -96,8 +96,8 @@ const Home = ({ randomContributors }) => {
             </div>
             <div className="z-10 px-6 mx-auto space-y-12 text-lg text-center text-white lg:space-y-0 lg:space-x-12 lg:flex lg:text-left max-w-7xl xl:font-mediumxl:text-xl">
               <FeatureIcon icon="layers">
-                “Zero-API” Dataレイヤーは、API エンドポイントの追加やClientでのFetch・キャッシュの代わりとして、
-                <string className="font-bold">Serverコードを直接Componentにインポート可能</string>です。
+                “Zero-API” Dataレイヤーは、API エンドポイントの追加やクライアントでのFetch・キャッシュの代わりとして、
+                <string className="font-bold">サーバーコードを直接コンポーネントにインポート可能</string>です。
               </FeatureIcon>
               <FeatureIcon icon="lighteningBolt">
                 Blitzアプリは、<string className="font-bold">すべてセットアップ済みのアプリを提供します！</string>
@@ -144,7 +144,7 @@ const Home = ({ randomContributors }) => {
                     </Feature>
                     <Feature title="API不要">
                       <p>
-                        バックエンドからデータをFetchする必要はなく、ServerコードをComponentに直接インポートします。
+                        バックエンドからデータをFetchする必要はなく、サーバーコードをコンポーネントに直接インポートします。
                         ビルド時に、関数のインポートは自動生成のHTTP APIに置き換えられます。
                       </p>
                       <p>生成されたAPIは、アプリ・サードパーティが利用可能です。</p>
@@ -292,20 +292,21 @@ const Home = ({ randomContributors }) => {
             <div className="absolute w-full h-full row-start-8 row-end-19 xl:row-end-19 -z-20 bg-purple-mid dark:bg-purple-off-black"></div>
             <div className="relative px-6 mx-auto my-6 space-y-12 text-white xl:my-0 max-w-7xl xl:space-y-36">
               <h2 className="text-3xl font-semibold lg:text-transparent lg:bg-clip-text lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue xl:text-5xl">
-                Everything End-to-End From <br className="hidden xl:block" />
-                the Database to the Frontend
+                データベースからフロントエンドまで  <br className="hidden xl:block" />
+                すべてが End to End
               </h2>
               <div className="grid gap-12 md:grid-cols-2 xl:grid-cols-3">
                 <Hand
                   variant="features-right"
                   className="hidden xl:block xl:-top-40 xl:-right-52"
                 />
-                <FeatureIconTitle icon="thumbsUp" title="Authentication & Authorization">
-                  Built-in authentication is super easy and very secure. Works with any identity
-                  provider, including self-hosted username and password and third-parties like
-                  Auth0.
+                <FeatureIconTitle icon="thumbsUp" title="認証認可">
+                  内蔵された認証機能は非常に簡単で、非常に安全です。
+                  自分でホストするユーザー名とパスワード、Auth0のようなサードパーティを含む、あらゆるIDプロバイダーで動作します。
                 </FeatureIconTitle>
-                <FeatureIconTitle icon="database" title="Database Agnostic">
+                <FeatureIconTitle icon="database" title="データベースに依存しない">
+                  好きなデータベースを使うことができます。
+                  Prisma 2 はデフォルトのデータベース・クライアントですが、これを外して Fauna や DynamoDB など他のものを使うこともできます。
                   You can use any database you want. Prisma 2 is the default database client, but
                   you can remove that and use anything else like Fauna or DynamoDB.
                 </FeatureIconTitle>
