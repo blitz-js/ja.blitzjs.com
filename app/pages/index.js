@@ -1,21 +1,23 @@
-import { Link, Image } from "blitz"
-import { Header } from "@/components/Header"
-import { ButtonLink } from "@/components/ButtonLink"
-import { HeroCode } from "@/components/home/HeroCode"
-import { VideoPlayer } from "@/components/home/VideoPlayer"
-import { Octokit } from "@octokit/rest"
-import { Feature } from "@/components/home/Feature"
-import { FeatureIcon } from "@/components/home/FeatureIcon"
-import { FeatureIconTitle } from "@/components/home/FeatureIconTitle"
-import { Footer } from "@/components/home/Footer"
-import { StyledLink } from "@/components/home/StyledLink"
-import { Hand } from "@/components/home/Hand"
-import Scrollbar from "@/components/Scrollbar"
-import { useState, useEffect } from "react"
-import { SocialCards } from "../components/SocialCards"
-import { SponsorPack } from "../components/SponsorPack"
+import {Octokit} from "@octokit/rest"
+import {Image, Link} from "blitz"
+import {useEffect, useState} from "react"
 
-const Home = ({ randomContributors }) => {
+import {ButtonLink} from "@/components/ButtonLink"
+import {Header} from "@/components/Header"
+import {Feature} from "@/components/home/Feature"
+import {FeatureIcon} from "@/components/home/FeatureIcon"
+import {FeatureIconTitle} from "@/components/home/FeatureIconTitle"
+import {Footer} from "@/components/home/Footer"
+import {Hand} from "@/components/home/Hand"
+import {HeroCode} from "@/components/home/HeroCode"
+import {StyledLink} from "@/components/home/StyledLink"
+import {VideoPlayer} from "@/components/home/VideoPlayer"
+import Scrollbar from "@/components/Scrollbar"
+import {SocialCards} from "@/components/SocialCards"
+import {SponsorPack} from "@/components/SponsorPack"
+import {getGitHubFile} from "@/utils/getGitHubFile"
+
+const Home = ({randomContributors}) => {
   const [navIsOpen, setNavIsOpen] = useState(false)
 
   useEffect(() => {
@@ -78,16 +80,16 @@ const Home = ({ randomContributors }) => {
                   <Hand
                     variant="hero-righthand"
                     className="z-20 hidden lg:block -left-4"
-                    style={{ top: "15.2rem" }}
+                    style={{top: "15.2rem"}}
                   />
                   <Hand
                     variant="hero-leftarm"
                     className="hidden lg:block"
-                    style={{ top: "30rem", right: "-4.8rem" }}
+                    style={{top: "30rem", right: "-4.8rem"}}
                   />
                   <Hand
                     variant="hero-lefthand"
-                    style={{ top: "26.6rem", right: "-2.2em" }}
+                    style={{top: "26.6rem", right: "-2.2em"}}
                     className="z-20 hidden lg:block"
                   />
                   <HeroCode className="z-10" />
@@ -108,7 +110,7 @@ const Home = ({ randomContributors }) => {
               </FeatureIcon>
             </div>
             <div className="grid w-full gap-5 px-6 mx-auto text-white xl:gap-10 max-w-7xl lg:grid-cols-2">
-              <Link href="#" passHref>
+              <Link href="/#" passHref>
                 <StyledLink className="flex items-center justify-between pb-1 text-lg border-b border-opacity-50 border-blue-mid lg:col-span-2 font-secondary xl:text-xl">
                   <span>Top Videos</span>
 
@@ -190,7 +192,7 @@ const Home = ({ randomContributors }) => {
                 Blitz CodeSandbox Example
               </h3>
               <div>
-                <Hand variant="sandbox-right" style={{ right: "-13.2rem", bottom: "-35rem" }} />
+                <Hand variant="sandbox-right" style={{right: "-13.2rem", bottom: "-35rem"}} />
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
@@ -211,17 +213,17 @@ const Home = ({ randomContributors }) => {
                   Blitzコミュニティ - 私たちが最も大切にしていること
                 </h2>
                 <div className="z-10 grid grid-cols-5 gap-1 md:grid-cols-6 lg:grid-cols-5 grid-rows-8 overflow-clip">
-                  {randomContributors.map((contributor) => (
+                  {randomContributors.map((contributor, i) => (
                     <a
                       href={`https://github.com/${contributor.login}`}
-                      key={contributor.id}
+                      key={i}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <img
                         src={contributor.avatar_url}
-                        alt={contributor.login}
-                        title={contributor.login}
+                        alt={contributor.name}
+                        title={contributor.name}
                         className="w-full"
                       />
                     </a>
@@ -280,7 +282,7 @@ const Home = ({ randomContributors }) => {
               </h2>
               <div className="w-full">
                 <Scrollbar className="lg:hidden" thumbHeight="4px" thumbColor="white">
-                  <div className="px-6 architecture-diagram" style={{ paddingBottom: "2px" }}>
+                  <div className="px-6 architecture-diagram" style={{paddingBottom: "2px"}}>
                     <img src="img/architecture.svg" alt="Architecture diagram" />
                   </div>
                 </Scrollbar>
@@ -333,7 +335,7 @@ const Home = ({ randomContributors }) => {
               <Hand
                 variant="sponsors-squiggle"
                 className="-right-24 xl:hidden"
-                style={{ top: "-5.3rem" }}
+                style={{top: "-5.3rem"}}
               />
             </div>
             <div className="px-6 mx-auto text-center max-w-7xl ">
@@ -341,8 +343,8 @@ const Home = ({ randomContributors }) => {
                 <h2 className="relative text-3xl font-semibold xl:text-5xl">
                   <Hand
                     variant="sponsors-left"
-                    className="hidden xl:block -left-80"
-                    style={{ top: "-18.05rem" }}
+                    className="hidden xl:block -left-80 pointer-events-none"
+                    style={{top: "-18.05rem"}}
                   />
                   スポンサーの皆様
                 </h2>
@@ -359,12 +361,12 @@ const Home = ({ randomContributors }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    スポンサーまたは寄付
+                    Blitz を支援する
                   </ButtonLink>
                 </div>
               </div>
 
-              <div className="xl:max-w-2xl mx-auto -mt-10">
+              <div className="xl:max-w-2xl mx-auto">
                 <SponsorPack />
               </div>
             </div>
@@ -405,15 +407,13 @@ const getStaticProps = async () => {
     auth: process.env.GITHUB_AUTH_TOKEN,
   })
 
-  let contributors = []
-
-  for await (const response of octokit.paginate.iterator(octokit.repos.listContributors, {
+  const {contributors} = await getGitHubFile({
+    octokit,
     owner: "blitz-js",
     repo: "blitz",
-    per_page: 100,
-  })) {
-    contributors.push(...response.data)
-  }
+    path: ".all-contributorsrc",
+    json: true,
+  })
 
   let randomIndexes = []
   while (randomIndexes.length < MAX_CONTRIBUTORS) {
@@ -424,7 +424,7 @@ const getStaticProps = async () => {
   let randomContributors = randomIndexes.map((i) => contributors[i])
 
   return {
-    props: { randomContributors },
+    props: {randomContributors},
     revalidate: 60 * 30, // 30 minutes
   }
 }
@@ -437,4 +437,4 @@ Home.layoutProps = {
 }
 
 export default Home
-export { getStaticProps }
+export {getStaticProps}

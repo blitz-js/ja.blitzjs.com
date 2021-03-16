@@ -1,6 +1,6 @@
+import {hierarchy, Pack} from "@visx/hierarchy"
+import {ParentSize} from "@visx/responsive"
 import React from "react"
-import { Pack, hierarchy } from "@visx/hierarchy"
-import { ParentSize } from "@visx/responsive"
 
 const sponsors = [
   {
@@ -44,25 +44,25 @@ const sponsors = [
   },
 ]
 
-export const SponsorPack = () => {
-  const pack = {
-    children: sponsors,
-    name: "root",
-    radius: 0,
-    distance: 0,
-  }
+const pack = {
+  children: sponsors,
+  name: "root",
+  radius: 0,
+  distance: 0,
+}
 
+export const SponsorPack = () => {
   const root = React.useMemo(
     () =>
       hierarchy(pack)
         .sum((d) => d?.cost * d?.cost)
         .sort((a, b) => b.data.cost - a.data.cost),
-    [pack]
+    [],
   )
 
   return (
     <ParentSize>
-      {({ width }) => {
+      {({width}) => {
         return width < 10 ? null : (
           <div
             style={{

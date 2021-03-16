@@ -1,5 +1,7 @@
-import { forwardRef, useMemo } from "react"
-import { Code } from "./Code"
+import {forwardRef, useMemo} from "react"
+
+import {Code} from "@/components/Code"
+
 import styles from "./CodeWindow.module.css"
 
 export function CodeWindow({
@@ -26,7 +28,7 @@ export function CodeWindow({
               <button
                 key={i}
                 onClick={() => onTabClick(i)}
-                className={`px-4 ml-3 text-xs text-black dark:text-white rounded-t-lg font-mono ${
+                className={`px-4 ml-3 text-xs text-black dark:text-dark-mode-text rounded-t-lg font-mono ${
                   tab.selected
                     ? "bg-gray-50 dark:bg-purple-mid"
                     : "bg-gray-300 dark:bg-purple-extradark"
@@ -39,7 +41,7 @@ export function CodeWindow({
         </div>
         <div className="relative flex flex-col flex-auto min-h-0 border-t border-gray-200 dark:border-gray-800">
           {lineNumbersBackground && (
-            <div className="absolute inset-y-0 left-0 hidden md:block" style={{ width: 50 }} />
+            <div className="absolute inset-y-0 left-0 hidden md:block" style={{width: 50}} />
           )}
           {children}
         </div>
@@ -48,7 +50,7 @@ export function CodeWindow({
   )
 }
 
-CodeWindow.Code = forwardRef(({ tokens, initialLineNumber = 1, ...props }, ref) => {
+CodeWindow.Code = forwardRef(({tokens, initialLineNumber = 1, ...props}, ref) => {
   const lineNumbers = useMemo(() => {
     const t = tokens.flat(Infinity)
     let line = initialLineNumber + 1
@@ -72,12 +74,12 @@ CodeWindow.Code = forwardRef(({ tokens, initialLineNumber = 1, ...props }, ref) 
         <pre className="flex min-h-full text-xs">
           <div
             aria-hidden="true"
-            className="flex-none hidden py-4 pr-4 font-mono text-right text-black text-opacity-50 select-none dark:text-white md:block"
-            style={{ width: 50 }}
+            className="flex-none hidden py-4 pr-4 font-mono text-right text-black text-opacity-50 select-none dark:text-dark-mode-text md:block"
+            style={{width: 50}}
           >
             {lineNumbers}
           </div>
-          <code className="relative flex-auto block px-4 pt-4 pb-4 overflow-auto font-mono text-black dark:text-white text-xs">
+          <code className="relative flex-auto block px-4 pt-4 pb-4 overflow-auto font-mono text-black dark:text-dark-mode-text text-xs">
             <Code tokens={tokens} {...props} />
           </code>
         </pre>
@@ -86,7 +88,7 @@ CodeWindow.Code = forwardRef(({ tokens, initialLineNumber = 1, ...props }, ref) 
   )
 })
 
-export function getClassNameForToken({ types, empty }) {
+export function getClassNameForToken({types, empty}) {
   const typesSize = types.length
   if (typesSize === 1 && types[0] === "plain") {
     return empty ? "inline-block" : undefined

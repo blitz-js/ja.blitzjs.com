@@ -9,9 +9,13 @@ sidebar_label: To Render.com
 4. Click on the "YAML" menu item, then click the "New from YAML" button
 5. Connect your github account then select your blitz app repo
 6. Click approve
-7. Go to "Services", click on your new Blitz service, click on "Environment"
-8. Click "Add Environment Variable", enter `SESSION_SECRET_KEY` as the name, then click on the "generate" button in the value field. Then click save.
-9. Your server + database will be automatically configured and started. Each git push will trigger a new deploy
+7. Go to "Services", click on your new Blitz service, click on
+   "Environment"
+8. Click "Add Environment Variable", enter `SESSION_SECRET_KEY` as the
+   name, then click on the "generate" button in the value field. Then
+   click save.
+9. Your server + database will be automatically configured and started.
+   Each git push will trigger a new deploy
 
 #### Without database:
 
@@ -28,24 +32,24 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-      - key: DATABASE_URL
-        fromDatabase:
-          name: blitzapp-db
-          property: connectionString
-    startCommand: blitz start -H 0.0.0.0
 ```
 
 #### With Postgres database:
 
-Update your `render.yaml` to provide the `DATABASE_URL` environment variable to connect to your database:
+Update your `render.yaml` to provide the `DATABASE_URL` environment
+variable to connect to your database:
 
+<!-- prettier-ignore-start -->
 ```yaml
 services:
   - type: web
     name: blitzapp
     env: node
     plan: starter
-    buildCommand: yarn --frozen-lockfile --prod=false && blitz prisma migrate deploy --preview-feature && blitz build
+    buildCommand:
+      yarn --frozen-lockfile --prod=false &&
+      blitz build &&
+      blitz prisma migrate deploy --preview-feature
     startCommand: blitz start
     envVars:
       - key: NODE_ENV
@@ -59,3 +63,4 @@ databases:
   - name: blitzapp-db
     plan: starter
 ```
+<!-- prettier-ignore-end -->

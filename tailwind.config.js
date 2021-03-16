@@ -1,7 +1,7 @@
 const defaultTheme = require("tailwindcss/defaultTheme")
 const colors = require("tailwindcss/colors")
-const { default: flattenColorPalette } = require("tailwindcss/lib/util/flattenColorPalette")
-const { toRgba } = require("tailwindcss/lib/util/withAlphaVariable")
+const {default: flattenColorPalette} = require("tailwindcss/lib/util/flattenColorPalette")
+const {toRgba} = require("tailwindcss/lib/util/withAlphaVariable")
 
 module.exports = {
   purge: {
@@ -20,6 +20,7 @@ module.exports = {
       "off-black": "#191919",
       "off-white": "#EEF2F7",
       white: "#FCFCFD",
+      "dark-mode-text": "#c9d1d9",
 
       amber: colors.amber,
       blue: {
@@ -56,8 +57,10 @@ module.exports = {
         mid: "#5600C2",
         primary: "#45009D",
         dark: "#34017B",
+        middark: "#27005d",
         extradark: "#10002f",
         "off-black": "#1F084E",
+        "dark-code": "#150635",
         deep: "#0E001D",
       },
       red: colors.red,
@@ -110,8 +113,8 @@ module.exports = {
             color: theme("colors.black"),
             fontSize: theme("fontSize.sm")[0],
             maxWidth: "none",
-            "> :first-child": { marginTop: "-" },
-            "> :last-child": { marginBottom: "-" },
+            "> :first-child": {marginTop: "-"},
+            "> :last-child": {marginBottom: "-"},
             "&:first-child > :first-child": {
               marginTop: "0",
             },
@@ -172,7 +175,7 @@ module.exports = {
               fontWeight: "inherit",
             },
             strong: {
-              fontWeight: theme("fontWeight.medium"),
+              fontWeight: theme("fontWeight.bold"),
             },
             "a strong": {
               color: "inherit",
@@ -256,10 +259,10 @@ module.exports = {
               lineHeight: 1.4,
               marginTop: 0,
               marginBottom: 0,
-              paddingTop: "0.8571429em",
-              paddingBottom: "0.8571429em",
-              paddingLeft: "1.1428571em",
-              paddingRight: "1.1428571em",
+              paddingTop: "0.75rem",
+              paddingBottom: "0.75rem",
+              paddingLeft: "1rem",
+              paddingRight: "1rem",
             },
             "ul > li": {
               paddingLeft: "1.5em",
@@ -296,9 +299,9 @@ module.exports = {
         },
         dark: {
           css: {
-            color: theme("colors.white"),
+            color: theme("colors.dark-mode-text"),
             "h1, h2, h3, h4, h5, h6, a, strong, code, pre code, blockquote": {
-              color: theme("colors.white"),
+              color: theme("colors.dark-mode-text"),
             },
             th: {
               color: theme("colors.gray.400"),
@@ -315,7 +318,7 @@ module.exports = {
               },
             },
             code: {
-              backgroundColor: theme("colors.purple.dark"),
+              backgroundColor: theme("colors.purple.middark"),
             },
             "pre code": {
               backgroundColor: "transparent",
@@ -358,8 +361,8 @@ module.exports = {
       },
       keyframes: {
         "flash-code": {
-          "0%": { backgroundColor: "rgba(134, 239, 172, 0.25)" },
-          "100%": { backgroundColor: "transparent" },
+          "0%": {backgroundColor: "rgba(134, 239, 172, 0.25)"},
+          "100%": {backgroundColor: "transparent"},
         },
       },
       animation: {
@@ -434,7 +437,7 @@ module.exports = {
   },
   plugins: [
     require("@tailwindcss/typography"),
-    function ({ addUtilities, theme }) {
+    function ({addUtilities, theme}) {
       const shadows = theme("boxShadow")
       addUtilities(
         Object.keys(shadows).reduce(
@@ -443,15 +446,15 @@ module.exports = {
             [`.text-shadow${key === "DEFAULT" ? "," : `-${key}`}`]: {
               textShadow: shadows[key].replace(
                 /([0-9]+(px)? [0-9]+(px)? [0-9]+(px)?) [0-9]+(px)?/g,
-                "$1"
+                "$1",
               ),
             },
           }),
-          {}
-        )
+          {},
+        ),
       )
     },
-    function ({ addUtilities, theme }) {
+    function ({addUtilities, theme}) {
       const utilities = {
         ".bg-stripes": {
           backgroundImage:
@@ -461,7 +464,7 @@ module.exports = {
       }
 
       const addColor = (name, color) =>
-        (utilities[`.bg-stripes-${name}`] = { "--stripes-color": color })
+        (utilities[`.bg-stripes-${name}`] = {"--stripes-color": color})
 
       const colors = flattenColorPalette(theme("backgroundColor"))
       for (let name in colors) {

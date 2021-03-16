@@ -1,17 +1,18 @@
-import { createPageList } from "@/utils/createPageList"
-import { Image } from "blitz"
+import {Image} from "blitz"
+
+import {createPageList} from "@/utils/createPageList"
 
 const pages = createPageList(
   // use compiled location
   require.context(
     `pages/docs/?meta=title,sidebar_label,shortTitle,published,displayUrl`,
     false,
-    /\.mdx$/
+    /\.mdx$/,
   ),
-  "docs"
+  "docs",
 )
 
-const Title = ({ title, iconPath, iconDarkPath }) => (
+const Title = ({title, iconPath, iconDarkPath}) => (
   <div className="px-3 mb-5 flex">
     {iconPath && (
       <div className={`mr-4 ${iconDarkPath ? "dark:hidden" : ""}`}>
@@ -23,7 +24,7 @@ const Title = ({ title, iconPath, iconDarkPath }) => (
         <Image src={iconDarkPath} width="14" height="18" alt={title} />
       </div>
     )}
-    <div className="text-xxs uppercase tracking-wider text-purple-off-black dark:text-white font-normal font-primary">
+    <div className="text-sm uppercase tracking-wider text-purple-off-black dark:text-dark-mode-text font-normal font-primary">
       {title}
     </div>
   </div>
@@ -62,6 +63,7 @@ export const documentationNav = [
       pages["contributing"],
       pages["maintainers"],
       pages["code-of-conduct"],
+      pages["translations"],
     ],
   },
   {
@@ -116,6 +118,7 @@ export const documentationNav = [
       pages["authorization"],
       pages["auth-utils"],
       pages["passportjs"],
+      pages["impersonation"],
     ],
   },
   {
@@ -173,7 +176,7 @@ export const documentationNav = [
         iconDarkPath="/img/deploying-to-production-white.svg"
       />
     ),
-    pages: [pages["deploy-render"], pages["deploy-vercel"], pages["deploy-heroku"]],
+    pages: [pages["deploy-render"], pages["deploy-heroku"], pages["deploy-vercel"]],
   },
   {
     title: (

@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react"
-import { SidebarLayout } from "@/layouts/SidebarLayout"
-import { Title } from "@/components/Title"
-import { Header } from "@/components/Header"
-import { Footer } from "@/components/home/Footer"
+import {useEffect, useState} from "react"
 
-import { documentationNav } from "@/navs/documentation"
-import { SocialCards } from "../components/SocialCards"
+import {Header} from "@/components/Header"
+import {Footer} from "@/components/home/Footer"
+import {SocialCards} from "@/components/SocialCards"
+import {Title} from "@/components/Title"
+import {SidebarLayout} from "@/layouts/SidebarLayout"
+import {documentationNav} from "@/navs/documentation"
 
 export function DocumentationLayout(props) {
   const [navIsOpen, setNavIsOpen] = useState(false)
@@ -32,7 +32,7 @@ export function DocumentationLayout(props) {
       <div className="max-w-7xl mx-auto font-secondary dark:">
         <SidebarLayout nav={documentationNav} {...props} />
       </div>
-      <Footer className="text-black dark:text-white" hasDarkMode />
+      <Footer className="text-black dark:text-dark-mode-text" hasDarkMode />
     </div>
   )
 }

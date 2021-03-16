@@ -1,25 +1,26 @@
-import { useState, useEffect, createContext, Fragment, useCallback } from "react"
-import { usePrevNext } from "@/hooks/usePrevNext"
-import { Link, useRouter } from "blitz"
-import { SidebarLayout } from "@/layouts/SidebarLayout"
-import { PageHeader } from "@/components/PageHeader"
+import {Link, useRouter} from "blitz"
 import clsx from "clsx"
-import { ReactComponent as ArrowIcon } from "@/img/icons/nav-arrow.svg"
-import { BiChevronLeft } from "react-icons/bi"
-import { BsCaretUpFill, BsCaretDownFill } from "react-icons/bs"
-import Select, { components } from "react-select"
-import { FaGithub } from "react-icons/fa"
+import {createContext, Fragment, useCallback, useEffect, useState} from "react"
+import {BiChevronLeft} from "react-icons/bi"
+import {BsCaretDownFill, BsCaretUpFill} from "react-icons/bs"
+import {FaGithub} from "react-icons/fa"
+import Select, {components} from "react-select"
+
+import {PageHeader} from "@/components/PageHeader"
+import {usePrevNext} from "@/hooks/usePrevNext"
+import {ReactComponent as ArrowIcon} from "@/img/icons/nav-arrow.svg"
+import {SidebarLayout} from "@/layouts/SidebarLayout"
 
 export const ContentsContext = createContext()
 
-export function TableOfContents({ tableOfContents, currentSection }) {
+export function TableOfContents({tableOfContents, currentSection}) {
   return (
     <div className="pl-8">
-      <ul className="overflow-x-hidden text-black dark:text-white font-normal text-xs">
+      <ul className="overflow-x-hidden text-black dark:text-dark-mode-text font-normal text-xs">
         {tableOfContents.map((section) => {
           let sectionIsActive =
             currentSection === section.slug ||
-            section.children.findIndex(({ slug }) => slug === currentSection) > -1
+            section.children.findIndex(({slug}) => slug === currentSection) > -1
 
           return (
             <Fragment key={section.slug}>
@@ -27,10 +28,10 @@ export function TableOfContents({ tableOfContents, currentSection }) {
                 <a
                   href={`#${section.slug}`}
                   className={clsx(
-                    "block transform transition-colors duration-200 py-2 hover:text-gray-900 dark:hover:text-off-white no-underline",
+                    "block transform transition-colors duration-200 py-2 hover:text-gray-600 dark:hover:text-gray-300 no-underline",
                     {
-                      "text-gray-900": sectionIsActive,
-                    }
+                      "font-bold": sectionIsActive,
+                    },
                   )}
                 >
                   {section.title}
@@ -44,10 +45,10 @@ export function TableOfContents({ tableOfContents, currentSection }) {
                     <a
                       href={`#${subsection.slug}`}
                       className={clsx(
-                        "block py-2 transition-colors duration-200 hover:text-gray-900 no-underline",
+                        "block py-2 transition-colors duration-200 hover:text-gray-700 dark:hover:text-gray-300 no-underline",
                         {
-                          "text-gray-900": subsectionIsActive,
-                        }
+                          "font-bold": subsectionIsActive,
+                        },
                       )}
                     >
                       {subsection.title}
@@ -68,7 +69,7 @@ function useTableOfContents(tableOfContents) {
   let [headings, setHeadings] = useState([])
 
   const registerHeading = useCallback((id, top) => {
-    setHeadings((headings) => [...headings.filter((h) => id !== h.id), { id, top }])
+    setHeadings((headings) => [...headings.filter((h) => id !== h.id), {id, top}])
   }, [])
 
   const unregisterHeading = useCallback((id) => {
@@ -106,12 +107,12 @@ function useTableOfContents(tableOfContents) {
     return () => window.removeEventListener("scroll", onScroll, true)
   }, [headings, tableOfContents])
 
-  return { currentSection, registerHeading, unregisterHeading }
+  return {currentSection, registerHeading, unregisterHeading}
 }
 
-export function ContentsLayoutOuter({ children, layoutProps, ...props }) {
-  const { currentSection, registerHeading, unregisterHeading } = useTableOfContents(
-    layoutProps.tableOfContents
+export function ContentsLayoutOuter({children, layoutProps, ...props}) {
+  const {currentSection, registerHeading, unregisterHeading} = useTableOfContents(
+    layoutProps.tableOfContents,
   )
 
   return (
@@ -126,7 +127,7 @@ export function ContentsLayoutOuter({ children, layoutProps, ...props }) {
       }
       {...props}
     >
-      <ContentsContext.Provider value={{ registerHeading, unregisterHeading }}>
+      <ContentsContext.Provider value={{registerHeading, unregisterHeading}}>
         {children}
       </ContentsContext.Provider>
     </SidebarLayout>
@@ -137,20 +138,20 @@ const DropdownIndicator = (props) => {
   return (
     components.DropdownIndicator && (
       <components.DropdownIndicator {...props}>
-        <BsCaretUpFill size="10" className="text-black dark:text-white" />
+        <BsCaretUpFill size="10" className="text-black dark:text-dark-mode-text" />
         <BsCaretDownFill
           size="10"
-          className="text-black dark:text-white"
-          style={{ marginTop: -2 }}
+          className="text-black dark:text-dark-mode-text"
+          style={{marginTop: -2}}
         />
       </components.DropdownIndicator>
     )
   )
 }
 
-export function ContentsLayout({ children, meta, tableOfContents: toc }) {
-  const { registerHeading, unregisterHeading } = useTableOfContents(toc)
-  let { prev, next } = usePrevNext()
+export function ContentsLayout({children, meta, tableOfContents: toc}) {
+  const {registerHeading, unregisterHeading} = useTableOfContents(toc)
+  let {prev, next} = usePrevNext()
   const router = useRouter()
   const [topic, setTopic] = useState(null)
 
@@ -164,26 +165,24 @@ export function ContentsLayout({ children, meta, tableOfContents: toc }) {
       <div id={meta.containerId} className="pt-4 pb-8 w-full flex">
         <div className="min-w-0 flex-auto px-6 sm:px-8 xl:px-12">
           <PageHeader title={meta.title} align={meta.titleAlign ?? "left"} />
-          <div
-            className={clsx("lg:hidden", { "mt-5 mb-12": toc.length, "h-px mt-8": !toc.length })}
-          >
+          <div className={clsx("lg:hidden", {"mt-5 mb-12": toc.length, "h-px mt-8": !toc.length})}>
             {!!toc.length && (
               <>
-                <h3 className="dark:text-white mb-2 text-sm">Topics</h3>
+                <h3 className="dark:text-dark-mode-text mb-2 text-sm">Topics</h3>
                 <Select
                   value={topic}
                   className="topic-select"
                   classNamePrefix="topic-select"
-                  options={toc.map((option) => ({ value: option.slug, label: option.title }))}
+                  options={toc.map((option) => ({value: option.slug, label: option.title}))}
                   placeholder="Jump to a Topic"
                   onChange={(e) => {
                     if (e && e.value) {
                       const hash = e.value
                       setTopic(null)
-                      router.push({ hash })
+                      router.push({hash})
                     }
                   }}
-                  components={{ DropdownIndicator }}
+                  components={{DropdownIndicator}}
                   styles={{
                     option: (base, state) => ({
                       ...base,
@@ -194,7 +193,7 @@ export function ContentsLayout({ children, meta, tableOfContents: toc }) {
               </>
             )}
           </div>
-          <ContentsContext.Provider value={{ registerHeading, unregisterHeading }}>
+          <ContentsContext.Provider value={{registerHeading, unregisterHeading}}>
             {children}
           </ContentsContext.Provider>
           {!meta.hideFooter && (
@@ -214,7 +213,7 @@ export function ContentsLayout({ children, meta, tableOfContents: toc }) {
               </a>
               {(prev || next) && (
                 <>
-                  <div className="flex flex-col sm:flex-row justify-between leading-7 font-semibold mt-8 mb-6">
+                  <div className="flex flex-col sm:flex-row justify-between leading-7 text-lg font-semibold mt-8 mb-6">
                     {prev && (
                       <Link href={prev.href}>
                         <a className="flex items-center">
