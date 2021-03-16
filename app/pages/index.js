@@ -344,12 +344,12 @@ const Home = ({ randomContributors }) => {
                     className="hidden xl:block -left-80"
                     style={{ top: "-18.05rem" }}
                   />
-                  Our Sponsors
+                  スポンサーの皆様
                 </h2>
                 <p className="text-lg xl:text-xl">
-                  Your financial contributions help ensure Blitz continues to be developed and{" "}
+                  皆様からのご寄付は、Blitz の継続的な開発・維持に貢献しています。
                   <br className="hidden lg:block" />
-                  maintained! We have monthly sponsorship options starting at $5/month.
+                  毎月のスポンサーシップでは、月額 5ドル からご利用いただけます。
                 </p>
                 <div>
                   <ButtonLink
@@ -359,7 +359,7 @@ const Home = ({ randomContributors }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Sponsor or Donate
+                    スポンサーまたは寄付
                   </ButtonLink>
                 </div>
               </div>
