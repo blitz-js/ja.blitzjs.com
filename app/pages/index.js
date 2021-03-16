@@ -371,14 +371,14 @@ const Home = ({ randomContributors }) => {
 
             <div className="w-full px-6 mx-auto space-y-12 text-white lg:space-x-4 lg:space-y-0 lg:flex lg:items-center max-w-7xl">
               <h2 className="pr-2 text-3xl font-semibold lg:w-full lg:text-transparent lg:bg-clip-text lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue xl:text-5xl">
-                So What Should I Do Now?
+                さぁ、次はどうすればいいでしょう？
               </h2>
               <div className="flex flex-col w-full space-y-4 md:flex-row md:space-y-0 md:space-x-2">
                 <ButtonLink
                   href="/docs/get-started"
                   className="w-full text-lg py-18 rounded-t-2xl md:rounded-tr-none"
                 >
-                  Try Blitz in Under 5 Mins
+                  5分でBlitzを始める
                 </ButtonLink>
                 <ButtonLink
                   target="_blank"
@@ -386,7 +386,7 @@ const Home = ({ randomContributors }) => {
                   href="https://discord.blitzjs.com"
                   className="w-full text-lg py-18 rounded-br-2xl md:rounded-tr-2xl"
                 >
-                  Join Discord
+                  Discord に参加する
                 </ButtonLink>
               </div>
             </div>
@@ -432,7 +432,7 @@ const getStaticProps = async () => {
 Home.layoutProps = {
   meta: {
     title: "Blitz.js - The Fullstack React Framework",
-    description: `Blitz is a hyper-productive fullstack React framework that's built on Next.js and features a "Zero-API" data layer.`,
+    description: `Blitz は Ruby on Rails にインスパイアされた、Next.js上に構築されている、REST/GraphQL を必要としない “Zero-API” Dataレイヤーを特徴としたパワフルなフレームワークです。`,
   },
 }
 
