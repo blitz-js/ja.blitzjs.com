@@ -54,8 +54,7 @@ const Home = ({randomContributors}) => {
                     The Fullstack React Framework
                   </h2>
                   <p className="text-lg xl:text-xl xl:font-medium text-off-white lg:text-transparent lg:bg-clip-text lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue xl:w-4/5">
-                    Blitz は Ruby on Rails にインスパイアされた、
-                    Next.js上に構築されている、
+                    Blitz は Ruby on Rails にインスパイアされた、 Next.js上に構築されている、
                     REST/GraphQL を必要としない “Zero-API” Dataレイヤーを特徴とした
                     パワフルなフレームワークです。
                   </p>
@@ -98,11 +97,16 @@ const Home = ({randomContributors}) => {
             </div>
             <div className="z-10 px-6 mx-auto space-y-12 text-lg text-center text-white lg:space-y-0 lg:space-x-12 lg:flex lg:text-left max-w-7xl xl:font-mediumxl:text-xl">
               <FeatureIcon icon="layers">
-                “Zero-API” Dataレイヤーは、API エンドポイントの追加やクライアントでのFetch・キャッシュの代わりとして、
-                <string className="font-bold">サーバーコードを直接コンポーネントにインポート可能</string>です。
+                “Zero-API” Dataレイヤーは、API
+                エンドポイントの追加やクライアントでのFetch・キャッシュの代わりとして、
+                <string className="font-bold">
+                  サーバーコードを直接コンポーネントにインポート可能
+                </string>
+                です。
               </FeatureIcon>
               <FeatureIcon icon="lighteningBolt">
-                Blitzアプリは、<string className="font-bold">すべてセットアップ済みのアプリを提供します！</string>
+                Blitzアプリは、
+                <string className="font-bold">すべてセットアップ済みのアプリを提供します！</string>
                 例えば、ESLint、Prettier、Jestや、ユーザーの会員登録、ログイン、パスワードリセットなど。
               </FeatureIcon>
               <FeatureIcon icon="graphUp">
@@ -149,7 +153,7 @@ const Home = ({randomContributors}) => {
                         バックエンドからデータをFetchする必要はなく、サーバーコードをコンポーネントに直接インポートします。
                         ビルド時に、関数のインポートは自動生成のHTTP APIに置き換えられます。
                       </p>
-                      <p>生成されたAPIは、アプリ・サードパーティが利用可能です。</p>
+                      <p>生成されたAPIは、アプリ・サードパーティからも利用可能です。</p>
                     </Feature>
                     <Feature title="Loose Opinions - ゆるい意見">
                       <p>
@@ -169,7 +173,9 @@ const Home = ({randomContributors}) => {
                       </p>
                     </Feature>
                     <Feature title="始めるのは簡単で、拡張も簡単">
-                      <p>既存のNext.jsアプリからBlitzへの移行は、初心者でもできるくらい簡単です。</p>
+                      <p>
+                        既存のNext.jsアプリからBlitzへの移行は、初心者でもできるくらい簡単です。
+                      </p>
                       <p>
                         それはコードの行数、コードベースで作業する人数、コードの実行数に関わらず、
                         あらゆる形態でのスケールアップが可能です。
@@ -244,8 +250,8 @@ const Home = ({randomContributors}) => {
                         <StyledLink className="underline text-off-white hover:text-blue-light">
                           行動規範
                         </StyledLink>
-                      </Link>
-                      {" "}を読んでください。
+                      </Link>{" "}
+                      を読んでください。
                     </p>
                   </div>
                   <ButtonLink
@@ -260,8 +266,10 @@ const Home = ({randomContributors}) => {
                 <div className="z-10 flex flex-col justify-between space-y-6 lg:justify-start">
                   <div className="flex flex-col space-y-6 lg:h-auto lg:text-transparent text-off-white lg:bg-clip-text lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue">
                     <p className="lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue lg:bg-clip-text">
-                      私たちは、若い人から年配の人まで、みんな一緒です。<br className="hidden lg:inline"/>
-                      私たちは皆、違うというよりもただ似ています。<br className="hidden lg:inline"/>
+                      私たちは、若い人から年配の人まで、みんな一緒です。
+                      <br className="hidden lg:inline" />
+                      私たちは皆、違うというよりもただ似ています。
+                      <br className="hidden lg:inline" />
                       私たちは一緒に働くことが大好きです。
                     </p>
                     <p className="lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue lg:bg-clip-text">
@@ -294,7 +302,7 @@ const Home = ({randomContributors}) => {
             <div className="absolute w-full h-full row-start-8 row-end-19 xl:row-end-19 -z-20 bg-purple-mid dark:bg-purple-off-black"></div>
             <div className="relative px-6 mx-auto my-6 space-y-12 text-white xl:my-0 max-w-7xl xl:space-y-36">
               <h2 className="text-3xl font-semibold lg:text-transparent lg:bg-clip-text lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue xl:text-5xl">
-                データベースからフロントエンドまで  <br className="hidden xl:block" />
+                データベースからフロントエンドまで <br className="hidden xl:block" />
                 すべてが End to End
               </h2>
               <div className="grid gap-12 md:grid-cols-2 xl:grid-cols-3">
@@ -306,25 +314,29 @@ const Home = ({randomContributors}) => {
                   内蔵された認証機能は非常に簡単で、非常に安全です。
                   自分でホストするユーザー名とパスワード、Auth0のようなサードパーティを含む、あらゆるIDプロバイダーで動作します。
                 </FeatureIconTitle>
-                <FeatureIconTitle icon="database" title="データベースに依存しない">
-                  あなたは好きなデータベースを使えます。
-                  Prisma 2 はデフォルトのデータベースクライアントですが、これを外して Fauna や DynamoDB など他のものを使うこともできます。
+                <FeatureIconTitle icon="database" title="特定のデータベースに依存しない">
+                  あなたは好きなデータベースを使えます。 Prisma 2
+                  はデフォルトのデータベースクライアントですが、これを外して Fauna や DynamoDB
+                  など他のものを使うこともできます。
                 </FeatureIconTitle>
                 <FeatureIconTitle icon="fileCode" title="レシピ">
-                  コードやパッケージをBlitzアtプリにインストールするためのコマンドです。
-                  （ex: `blitz install tailwind` や `blitz install chakra-ui`）
+                  コードやパッケージをBlitzアプリにインストールするためのコマンドです。 （ex: `blitz
+                  install tailwind` や `blitz install chakra-ui`）
                   レシピは誰でも作成することができます。
                 </FeatureIconTitle>
                 <FeatureIconTitle icon="plugin" title="バックエンドアーキテクチャ">
-                  Blitz は、サーバーに負荷のかかる作業のために設定されています。（電子メールの送信、cronジョブ、バックグラウンド処理、PDFの生成など）
-                  現在、最小限のバックエンドガイドになっていますが、より多くのパターン開発とドキュメントの追加に取り組んでいます。
+                  Blitz
+                  は、サーバー処理に特化した機能を持っています。（電子メールの送信、cronジョブ、バックグラウンド処理、PDFの生成など）
+                  現在、バックエンドについては最小限のガイドしかありませんが、今後は幅広いパターンの対応とドキュメントの追加に取り組んでいきます。
                 </FeatureIconTitle>
                 <FeatureIconTitle icon="typescript" title="Typescriptのファーストクラスサポート">
-                  Blitz は Typescript で構築されており、Blitz のデータレイヤーは100%エンドツーエンドでありタイプセーフです。
+                  Blitz は Typescript で構築されており、Blitz
+                  のデータレイヤーは端から端まで完全にタイプセーフです。
                   すべての型は完全に静的で、別の型生成プロセスを必要としません！
                 </FeatureIconTitle>
                 <FeatureIconTitle icon="scaffolding" title="Code Scaffolding">
-                  まだ始まったばかりですが、Blitzの Code Scaffolding は非常に強力なものになるでしょう。
+                  まだ始まったばかりですが、Blitzの Code Scaffolding
+                  は非常に強力なものになるでしょう。
                   プロトタイピングにも、実際のアプリケーションの構築にも最適です。
                   テンプレートを上書きして、自分のプロジェクトに合わせてカスタマイズできるようになります。
                 </FeatureIconTitle>
@@ -351,7 +363,7 @@ const Home = ({randomContributors}) => {
                 <p className="text-lg xl:text-xl">
                   皆様からのご寄付は、Blitz の継続的な開発・維持に貢献しています。
                   <br className="hidden lg:block" />
-                  毎月のスポンサーシップでは、月額 5ドル からご利用いただけます。
+                  毎月のスポンサーシップでは、月額 5ドル から寄付が可能です。
                 </p>
                 <div>
                   <ButtonLink
@@ -432,7 +444,7 @@ const getStaticProps = async () => {
 Home.layoutProps = {
   meta: {
     title: "Blitz.js - The Fullstack React Framework",
-    description: `Blitz は Ruby on Rails にインスパイアされた、Next.js上に構築されている、REST/GraphQL を必要としない “Zero-API” Dataレイヤーを特徴としたパワフルなフレームワークです。`,
+    description: `Blitz は Next.js上に構築されている “Zero-API” Dataレイヤーが特徴的なパワフルなフレームワークです。`,
   },
 }
 
