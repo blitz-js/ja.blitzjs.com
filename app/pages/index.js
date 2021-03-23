@@ -54,13 +54,13 @@ const Home = ({randomContributors}) => {
                     The Fullstack React Framework
                   </h2>
                   <p className="text-lg xl:text-xl xl:font-medium text-off-white lg:text-transparent lg:bg-clip-text lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue xl:w-4/5">
-                    Blitz is a batteries-included framework that's inspired by Ruby on Rails, is
-                    built on Next.js, and features a "Zero-API" data layer abstraction that
-                    eliminates the need for REST/GraphQL.
+                    Blitz は Ruby on Rails にインスパイアされた、 Next.js上に構築されている、
+                    REST/GraphQL を必要としない “Zero-API” Dataレイヤーを特徴とした
+                    パワフルなフレームワークです。
                   </p>
                   <div className="flex space-x-4">
                     <ButtonLink className="w-2/3 lg:w-auto rounded-tl-xl" href="/docs/get-started">
-                      Try Blitz in Under 5 Mins
+                      5分でBlitzを始める
                     </ButtonLink>
                     <ButtonLink
                       href="https://github.com/blitz-js/blitz"
@@ -97,18 +97,20 @@ const Home = ({randomContributors}) => {
             </div>
             <div className="z-10 px-6 mx-auto space-y-12 text-lg text-center text-white lg:space-y-0 lg:space-x-12 lg:flex lg:text-left max-w-7xl xl:font-mediumxl:text-xl">
               <FeatureIcon icon="layers">
-                “Zero-API” data layer lets you{" "}
-                <strong>import server code directly into your components</strong> instead of having
-                to manually add API endpoints and do client-side fetching and caching.
+                “Zero-API” Dataレイヤーは、API
+                エンドポイントの追加やクライアントでのFetch・キャッシュの代わりとして、
+                <string className="font-bold">
+                  サーバーコードを直接コンポーネントにインポート可能
+                </string>
+                です。
               </FeatureIcon>
               <FeatureIcon icon="lighteningBolt">
-                New Blitz apps come with all the{" "}
-                <strong>boring stuff already set up for you!</strong> Like ESLint, Prettier, Jest,
-                user sign up, log in, and password reset.
+                Blitzアプリは、
+                <string className="font-bold">すべてセットアップ済みのアプリを提供します！</string>
+                例えば、ESLint、Prettier、Jestや、ユーザーの会員登録、ログイン、パスワードリセットなど。
               </FeatureIcon>
               <FeatureIcon icon="graphUp">
-                Provides <strong>helpful defaults and conventions</strong> for things like routing,
-                file structure, and authentication while also being extremely flexible.
+                非常に柔軟でありながら、デフォルトの設定や規約を提供します。（ルーティング、ファイル構造、認証など）
               </FeatureIcon>
             </div>
             <div className="grid w-full gap-5 px-6 mx-auto text-white xl:gap-10 max-w-7xl lg:grid-cols-2">
@@ -130,7 +132,7 @@ const Home = ({randomContributors}) => {
 
             <div className="relative w-full mx-auto space-y-10 lg:space-y-20 xl:space-y-36 max-w-7xl">
               <h2 className="px-6 text-3xl font-semibold xl:text-5xl xl:w-1/2">
-                Everything You Need For Production Apps
+                Productionアプリに必要なすべてを
               </h2>
               <div className="w-full">
                 <Hand
@@ -139,52 +141,52 @@ const Home = ({randomContributors}) => {
                 />
                 <Scrollbar className="lg:hidden" thumbHeight="4px">
                   <div className="grid pb-4 ml-6 features-grid lg:gap-y-14">
-                    <Feature title="Fullstack & Monolithic">
+                    <Feature title="フルスタック & モノリシック">
                       <p>
-                        Includes everything from the database to your frontend all inside a single
-                        app. Only one thing to develop. Only one thing to deploy.
+                        1つのアプリで、データベースからフロントエンドまですべてを実現します。
+                        あなたが開発するのはたった1つだけ。Deployするのも1つだけです。
                       </p>
-                      <p>And you can deploy to a server or serverless.</p>
+                      <p>また、サーバー / サーバーレスへのDeployが可能です。</p>
                     </Feature>
-                    <Feature title="API Not Required">
+                    <Feature title="API不要">
                       <p>
-                        Instead of fetching data from the backend, you import your server code
-                        directly into your components. At build time, that function import is
-                        swapped out with an auto generated HTTP API.
+                        バックエンドからデータをFetchする必要はなく、サーバーコードをコンポーネントに直接インポートします。
+                        ビルド時に、関数のインポートは自動生成のHTTP APIに置き換えられます。
                       </p>
-                      <p>The generated API can also be used by apps & third-parties.</p>
+                      <p>生成されたAPIは、アプリ・サードパーティからも利用可能です。</p>
                     </Feature>
-                    <Feature title="Loose Opinions">
+                    <Feature title="Loose Opinions - ゆるい意見">
                       <p>
-                        The out-of-the-box experience guides you on a path perfect for most
-                        applications. But when you need to go off the beaten path, you are totally
-                        free to do so.
+                        すぐに使えるエクスペリエンスが、ほぼすべてのアプリケーションに最適な方法を案内します。
+                        しかし、道を逸れたいときには100%自由に行動できます。
                       </p>
                       <p>
-                        And nearly everything is pluggable. For example, we don't mandate which
-                        styling or form libraries you use.
+                        ほぼすべてがプラグイン可能です。
+                        例えば、スタイリングやフォームライブラリはどれを使うか強制するものはありません。
                       </p>
                     </Feature>
-                    <Feature title="Convention over Configuration">
+                    <Feature title="設定より規約">
                       <p>
-                        Blitz does all the boring set up and configuration for you. The common
-                        project structure and architectural patterns make it easy to move from one
-                        Blitz app to another and immediately feel at home.
+                        つまらないセットアップ、設定はすべてBlitzが行います。
+                        共通のプロジェクト構造とアーキテクチャパターンにより、
+                        Blitzのアプリから別のアプリへの移行は簡単で、一息で終わらせることができます。
                       </p>
                     </Feature>
-                    <Feature title="Easy to Start, Easy to Scale">
-                      <p>Easy for beginners and easy to migrate existing Next.js apps to Blitz.</p>
+                    <Feature title="始めるのは簡単で、拡張も簡単">
                       <p>
-                        Easy to scale in all forms: lines of code, number of people working in the
-                        codebase, and code execution.
+                        既存のNext.jsアプリからBlitzへの移行は、初心者でもできるくらい簡単です。
+                      </p>
+                      <p>
+                        それはコードの行数、コードベースで作業する人数、コードの実行数に関わらず、
+                        あらゆる形態でのスケールアップが可能です。
                       </p>
                     </Feature>
-                    <Feature title="Stability">
+                    <Feature title="安定性">
                       <p>
-                        Once we reach version 1.0, we'll switch to a stable, predictable release
-                        cycle with multiple channels like stable, LTS, and beta.
+                        バージョン1.0に到達したら、リリースサイクルを安定した予測可能なものに切り替え、
+                        安定版 / LTS / ベータ版などの複数チャンネルを用意します。
                       </p>
-                      <p>We are taking a lot inspiration from Ember in this regard.</p>
+                      <p>この点については、Emberから多くのインスピレーションを得ています。</p>
                     </Feature>
                   </div>
                 </Scrollbar>
@@ -214,7 +216,7 @@ const Home = ({randomContributors}) => {
             <div className="relative flex flex-col px-6 mx-auto text-white lg:flex-row max-w-7xl space-y-14 lg:space-x-24 lg:space-y-0 xl:space-x-40">
               <div className="space-y-14 lg:w-1/2">
                 <h2 className="z-10 font-medium text-transparent text-5xl-squashed font-secondary bg-clip-text bg-gradient-to-r from-blue-gradient-white to-blue-gradient-light-blue xl:text-6xl">
-                  The Blitz Community - Our Most Important Aspect
+                  Blitzコミュニティ - 私たちが最も大切にしていること
                 </h2>
                 <div className="z-10 grid grid-cols-5 gap-1 md:grid-cols-6 lg:grid-cols-5 grid-rows-8 overflow-clip">
                   {randomContributors.map((contributor, i) => (
@@ -239,17 +241,17 @@ const Home = ({randomContributors}) => {
                 <div className="z-10 flex flex-col justify-between space-y-6 lg:justify-end">
                   <div className="flex flex-col space-y-6 lg:h-auto lg:text-transparent text-off-white">
                     <p className="lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue lg:bg-clip-text">
-                      Our community is warm, safe, diverse, inclusive, and fun! LGBTQ+, women, and
-                      minorities are especially welcome.
+                      私たちのコミュニティは、暖かく、安全で、多様で、包括的で、楽しいものです。
+                      LGBTQ+、女性、マイノリティの方は特に歓迎します。
                     </p>
                     <p className="lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue lg:bg-clip-text">
-                      Please read our{" "}
+                      ぜひ{" "}
                       <Link href="/docs/code-of-conduct" passHref>
                         <StyledLink className="underline text-off-white hover:text-blue-light">
-                          Code of Conduct
+                          行動規範
                         </StyledLink>
-                      </Link>
-                      .
+                      </Link>{" "}
+                      を読んでください。
                     </p>
                   </div>
                   <ButtonLink
@@ -258,22 +260,25 @@ const Home = ({randomContributors}) => {
                     rel="noopener noreferrer"
                     className="rounded-bl-none rounded-xl lg:w-max"
                   >
-                    Join our Discord Community
+                    Discord コミュニティに参加する
                   </ButtonLink>
                 </div>
                 <div className="z-10 flex flex-col justify-between space-y-6 lg:justify-start">
                   <div className="flex flex-col space-y-6 lg:h-auto lg:text-transparent text-off-white lg:bg-clip-text lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue">
                     <p className="lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue lg:bg-clip-text">
-                      We are all in this together, from the youngest to the oldest. We are all more
-                      similar than we are different. We love to work together.
+                      私たちは、若い人から年配の人まで、みんな一緒です。
+                      <br className="hidden lg:inline" />
+                      私たちは皆、違うというよりもただ似ています。
+                      <br className="hidden lg:inline" />
+                      私たちは一緒に働くことが大好きです。
                     </p>
                     <p className="lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue lg:bg-clip-text">
-                      We invite you to help make Blitz the best framework we've ever had!
+                      Blitzを最高のフレームワークにするため、ぜひあなたの力を貸してください！
                     </p>
                   </div>
                   <Link href="/docs/contributing" passHref>
                     <ButtonLink className="rounded-bl-none rounded-xl lg:w-max">
-                      Learn How to Contribute
+                      コントリビュートのやり方を学ぶ
                     </ButtonLink>
                   </Link>
                 </div>
@@ -281,7 +286,7 @@ const Home = ({randomContributors}) => {
             </div>
             <div className="z-10 w-full mx-auto text-white space-y-7 max-w-7xl">
               <h2 className="px-6 text-2xl font-medium text-white font-secondary lg:text-3xl">
-                Architecture Diagram
+                アーキテクチャ図
               </h2>
               <div className="w-full">
                 <Scrollbar className="lg:hidden" thumbHeight="4px" thumbColor="white">
@@ -297,41 +302,43 @@ const Home = ({randomContributors}) => {
             <div className="absolute w-full h-full row-start-8 row-end-19 xl:row-end-19 -z-20 bg-purple-mid dark:bg-purple-off-black"></div>
             <div className="relative px-6 mx-auto my-6 space-y-12 text-white xl:my-0 max-w-7xl xl:space-y-36">
               <h2 className="text-3xl font-semibold lg:text-transparent lg:bg-clip-text lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue xl:text-5xl">
-                Everything End-to-End From <br className="hidden xl:block" />
-                the Database to the Frontend
+                データベースからフロントエンドまで <br className="hidden xl:block" />
+                すべてが End to End
               </h2>
               <div className="grid gap-12 md:grid-cols-2 xl:grid-cols-3">
                 <Hand
                   variant="features-right"
                   className="hidden xl:block xl:-top-40 xl:-right-52"
                 />
-                <FeatureIconTitle icon="thumbsUp" title="Authentication & Authorization">
-                  Built-in authentication is super easy and very secure. Works with any identity
-                  provider, including self-hosted username and password and third-parties like
-                  Auth0.
+                <FeatureIconTitle icon="thumbsUp" title="認証認可">
+                  内蔵された認証機能は非常に簡単で、非常に安全です。
+                  自分でホストするユーザー名とパスワード、Auth0のようなサードパーティを含む、あらゆるIDプロバイダーで動作します。
                 </FeatureIconTitle>
-                <FeatureIconTitle icon="database" title="Database Agnostic">
-                  You can use any database you want. Prisma 2 is the default database client, but
-                  you can remove that and use anything else like Fauna or DynamoDB.
+                <FeatureIconTitle icon="database" title="特定のデータベースに依存しない">
+                  あなたは好きなデータベースを使えます。 Prisma 2
+                  はデフォルトのデータベースクライアントですが、これを外して Fauna や DynamoDB
+                  など他のものを使うこともできます。
                 </FeatureIconTitle>
-                <FeatureIconTitle icon="fileCode" title="Recipes">
-                  One command to install code and/or packages into your blitz app. Examples: `blitz
-                  install tailwind` or `blitz install chakra-ui`. Recipes can be created by anyone.
+                <FeatureIconTitle icon="fileCode" title="レシピ">
+                  コードやパッケージをBlitzアプリにインストールするためのコマンドです。 （ex: `blitz
+                  install tailwind` や `blitz install chakra-ui`）
+                  レシピは誰でも作成することができます。
                 </FeatureIconTitle>
-                <FeatureIconTitle icon="plugin" title="Backend Architecture">
-                  Blitz is set up for server intensive tasks like sending emails, cron jobs,
-                  background processing, generating PDFs, etc. Currently we have minimal backend
-                  guides, but are working on developing more patterns and adding more docs.
+                <FeatureIconTitle icon="plugin" title="バックエンドアーキテクチャ">
+                  Blitz
+                  は、サーバー処理に特化した機能を持っています。（電子メールの送信、cronジョブ、バックグラウンド処理、PDFの生成など）
+                  現在、バックエンドについては最小限のガイドしかありませんが、今後は幅広いパターンの対応とドキュメントの追加に取り組んでいきます。
                 </FeatureIconTitle>
-                <FeatureIconTitle icon="typescript" title="First Class Typescript Support">
-                  Blitz is built with Typescript and the Blitz data layer is fully end-to-end
-                  typesafe. All types are completely static without needing a separate type
-                  generation process!
+                <FeatureIconTitle icon="typescript" title="Typescriptのファーストクラスサポート">
+                  Blitz は Typescript で構築されており、Blitz
+                  のデータレイヤーは端から端まで完全にタイプセーフです。
+                  すべての型は完全に静的で、別の型生成プロセスを必要としません！
                 </FeatureIconTitle>
                 <FeatureIconTitle icon="scaffolding" title="Code Scaffolding">
-                  It’s early days, but Blitz code scaffolding is going to be extremely powerful.
-                  Great for both prototyping and for building real apps. Will be able to override
-                  any template and customize for your project.
+                  まだ始まったばかりですが、Blitzの Code Scaffolding
+                  は非常に強力なものになるでしょう。
+                  プロトタイピングにも、実際のアプリケーションの構築にも最適です。
+                  テンプレートを上書きして、自分のプロジェクトに合わせてカスタマイズできるようになります。
                 </FeatureIconTitle>
               </div>
             </div>
@@ -351,12 +358,12 @@ const Home = ({randomContributors}) => {
                     className="hidden xl:block -left-80 pointer-events-none"
                     style={{top: "-18.05rem"}}
                   />
-                  Our Sponsors
+                  スポンサーの皆様
                 </h2>
                 <p className="text-lg xl:text-xl">
-                  Your financial contributions help ensure Blitz continues to be developed and{" "}
+                  皆様からのご寄付は、Blitz の継続的な開発・維持に貢献しています。
                   <br className="hidden lg:block" />
-                  maintained! We have monthly sponsorship options starting at $5/month.
+                  毎月のスポンサーシップでは、月額 5ドル から寄付が可能です。
                 </p>
                 <div>
                   <ButtonLink
@@ -366,7 +373,7 @@ const Home = ({randomContributors}) => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Support Blitz
+                    Blitz を支援する
                   </ButtonLink>
                 </div>
               </div>
@@ -378,14 +385,14 @@ const Home = ({randomContributors}) => {
 
             <div className="w-full px-6 mx-auto space-y-12 text-white lg:space-x-4 lg:space-y-0 lg:flex lg:items-center max-w-7xl">
               <h2 className="pr-2 text-3xl font-semibold lg:w-full lg:text-transparent lg:bg-clip-text lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue xl:text-5xl">
-                So What Should I Do Now?
+                さぁ、次はどうすればいいでしょう？
               </h2>
               <div className="flex flex-col w-full space-y-4 md:flex-row md:space-y-0 md:space-x-2">
                 <ButtonLink
                   href="/docs/get-started"
                   className="w-full text-lg py-18 rounded-t-2xl md:rounded-tr-none"
                 >
-                  Try Blitz in Under 5 Mins
+                  5分でBlitzを始める
                 </ButtonLink>
                 <ButtonLink
                   target="_blank"
@@ -393,7 +400,7 @@ const Home = ({randomContributors}) => {
                   href="https://discord.blitzjs.com"
                   className="w-full text-lg py-18 rounded-br-2xl md:rounded-tr-2xl"
                 >
-                  Join Discord
+                  Discord に参加する
                 </ButtonLink>
               </div>
             </div>
@@ -437,7 +444,7 @@ const getStaticProps = async () => {
 Home.layoutProps = {
   meta: {
     title: "Blitz.js - The Fullstack React Framework",
-    description: `Blitz is a hyper-productive fullstack React framework that's built on Next.js and features a "Zero-API" data layer.`,
+    description: `Blitz は Next.js上に構築されている “Zero-API” Dataレイヤーが特徴的なパワフルなフレームワークです。`,
   },
 }
 
