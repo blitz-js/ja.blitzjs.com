@@ -441,17 +441,11 @@ const getStaticProps = async () => {
   }
 }
 
-<<<<<<< HEAD
-Home.layoutProps = {
+Home.meta = {
   meta: {
     title: "Blitz.js - The Fullstack React Framework",
     description: `Blitz は Next.js上に構築されている “Zero-API” Dataレイヤーが特徴的なパワフルなフレームワークです。`,
   },
-=======
-Home.meta = {
-  title: "Blitz.js - The Fullstack React Framework",
-  description: `Blitz is a hyper-productive fullstack React framework that's built on Next.js and features a "Zero-API" data layer.`,
->>>>>>> 13511cdae11a454e3655ac27efbd36ab757100cb
 }
 
 export default Home
