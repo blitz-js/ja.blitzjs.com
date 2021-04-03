@@ -441,7 +441,6 @@ const getStaticProps = async () => {
   }
 }
 
-
 Home.meta = {
   meta: {
     title: "Blitz.js - The Fullstack React Framework",
