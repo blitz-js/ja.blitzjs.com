@@ -1,37 +1,29 @@
 ---
-title: Tutorial
-sidebar_label: Tutorial
+title: チュートリアル
+sidebar_label: チュートリアル
 ---
 
-In this tutorial, we’ll walk you through the creation of a basic voting
-application.
+このチュートリアルでは、基本的な投票アプリケーションの作成方法を説明します。
 
-We’ll assume that you have [Blitz installed](./get-started) already. You
-can tell if Blitz is installed, and which version you have by running the
-following command in your terminal:
+ここでは、すでに Blitz がインストールされている( [Blitz のインストール方法](./get-started]) を参照ください)ことを前提とします。Blitz がインストールされているかどうかは、コマンドラインで以下のコマンドを実行することでわかります。
 
 ```sh
 blitz -v
 ```
 
-If Blitz is installed, you should see the version of your installation. If
-it isn’t, you’ll get an error saying something like “command not found:
-blitz”.
+Blitz がインストールされていれば、そのバージョンが表示されるはずです。インストールされていない場合は、"command not found: blitz "のようなエラーが表示されます。
 
-## Creating a new app {#creating-a-new-app}
+## 新しい Blitz アプリの作成 {#creating-a-new-app}
 
-From the command line, `cd` into the folder where you’d like to create
-your app, and then run the following command:
+コマンドラインで`cd` コマンドを用い、アプリを作成したいディレクトリに移動し、次のコマンドを実行します。
 
 ```sh
 blitz new my-blitz-app
 ```
 
-Blitz will create a `my-blitz-app` folder in your current folder. You will
-be prompted to pick a form library. For this tutorial, select the
-recommended library `React Final Form`.
+Blitz は現在のディレクトリ内に `my-blitz-app` ディレクトリを作成します。すると、フォームライブラリを選択するように促されます。このチュートリアルでは、推奨しているライブラリ `React Final Form` を選択します。
 
-Let’s look at what `blitz new` created:
+それでは、`blitz new`が作成したものを見てみましょう。
 
 ```
 my-blitz-app
@@ -97,44 +89,33 @@ my-blitz-app
 └── yarn.lock
 ```
 
-These files are:
+これらのファイルについて説明します。
 
-- The `app/` folder is a container for most of your project. This is where
-  you’ll put any pages or API routes.
+- `app/` ディレクトリは、ページや API ルートなど、プロジェクトの多くのものが配置される場所です。
 
-- The `app/pages/` folder is the primary pages folder. If you've used
-  Next.js you'll immediately notice this is different. In Blitz, you can
-  have many `pages` folders and they will be merged together at build
-  time.
+- `app/pages/` ディレクトリは、主要なページディレクトリです。Next.js を使ったことがある人なら、この違いにすぐに気づくでしょう。Blitz では多くの`pages`ディレクトリを持つことができ、それらはビルド時にマージされます。
 
-- The `app/core/` folder is the main place to put components, hooks, etc
-  that are used throughout your app.
+- `app/core/` ディレクトリは、アプリ全体で使用されるコンポーネントやフックなどを置く主な場所です。
 
-- `db/` is where your database configuration goes. If you’re writing
-  models or checking migrations, this is where to go.
+- `db/` ディレクトリは、データベースの設定を置く場所です。モデルを書いたり、マイグレーションをチェックしたりする場合は、ここに行きます。
 
-- `public/` is a folder where you will put any static assets. If you have
-  images, files, or videos which you want to use in your app, this is
-  where to put them.
+- `public/` ディレクトリは、静的アセットを置く場所です。アプリで使用する画像・ファイル・動画がある場合は、ここに配置します。
 
-- `.babelrc.js`, `.env`, etc. ("dotfiles") are configuration files for
-  various bits of JavaScript tooling.
+- `.babelrc.js`、`.env`など (つまり、ドットから始まるファイル) は、JavaScript ツールの様々な設定ファイルです。
 
-- `blitz.config.js` is for advanced custom configuration of Blitz. It's
-  the same format as `next.config.js`.
+- `blitz.config.js` は、Blitz の高度なカスタム設定を行うためのファイルです。フォーマットは`next.config.js` と同じです。
 
-- `tsconfig.json` is our recommended setup for TypeScript.
+- `tsconfig.json` は、TypeScript の設定ファイルです。推奨の初期設定がされています。
 
-## The development server {#the-development-server}
+## 開発サーバー {#the-development-server}
 
-Now make sure you are in the `my-blitz-app` folder, if you haven’t
-already, and run the following command:
+それでは、`my-blitz-app` ディレクトリを確認しましょう。まだ `my-blitz-app` ディレクトリが存在しない場合は、次のコマンドを実行してください。
 
 ```sh
 blitz dev
 ```
 
-You’ll see the following output on the command line:
+コマンドラインには、次のような出力が表示されます。
 
 ```sh
 ✔ Compiled
@@ -147,26 +128,21 @@ info  - Using external babel configuration from /my-blitz-app/babel.config.js
 event - compiled successfully
 ```
 
-Now that the server’s running, visit
-[localhost:3000](http://localhost:3000) with your web browser. You’ll see
-a welcome page, with the Blitz logo. It worked!
+サーバーが起動したら、ブラウザで [localhost:3000](http://localhost:3000) にアクセスしてください。
+Blitz のロゴが入ったウェルカムページが表示されます。うまくいきましたね！
 
-## Sign up as a user {#sign-up-as-a-user}
+## ユーザーとして登録する {#sign-up-as-a-user}
 
-Blitz apps are created with user signup and login already set up! So let's
-try it. Click on the **Sign Up** button. Enter any email and password and
-click **Create Account**. Then you'll be redirected back to the home page
-where you can see your user `id` and `role`.
+Blitz アプリは、ユーザーのサインアップやログイン機能がすでに設定されています！
+早速試してみましょう。**Sign Up** ボタンをクリックします。任意のメールアドレスとパスワードを入力して、**Create Account**をクリックします。そうすると、あなたのアカウントの `id` と `role` が表示されているページにリダイレクトされます。
 
-If you want, you can also try logging out and logging back in. Or click
-**Forgot your password?** on the login page to try that flow.
+必要であれば、ログアウトしてからログインし直すこともできます。あるいは、ログインページの **Forgot your password?** をクリックして、パスワードを忘れた場合のフローを試してみてください。
 
-## Write your first page {#write-your-first-page}
+## 最初のページの実装 {#write-your-first-page}
 
-Next let's create your first page.
+次に、最初のページを作成してみましょう。
 
-Open the file `app/pages/index.tsx` and replace the contents of the `Home`
-component with this:
+`app/pages/index.tsx` を開き、`Home` コンポーネントの内容を次のように変更します。
 
 ```tsx
 //...
@@ -186,40 +162,27 @@ const Home: BlitzPage = () => {
 //...
 ```
 
-Save the file and you should see the page update in your browser. You can
-add customize this as much as you want. When you’re ready, move on to the
-next section.
+保存するとブラウザでページが更新されるはずです。このようにしてページを好きなようにカスタマイズできます。準備ができたら、次のセクションに進みましょう。
 
-## Database setup {#database-setup}
+## データベースの設定 {#database-setup}
 
-Good news, an SQLite database was already set up for you! You can run
-`blitz prisma studio` in the terminal to open a web interface where you
-can see the data in your database.
+嬉しいことに、SQLite データベースが設定済みです。コマンドラインで`blitz prisma studio` を実行すると、データベース内のデータを見ることができる Web インターフェースが開きます。
 
-Note that when starting your first real project, you may want to use a
-more scalable database like PostgreSQL, to avoid the pains of switching
-your database down the road. For more information, see
-[Database overview](database-overview). For now, we will continue with the
-default SQLite database.
+本格的なプロジェクトを始めるときには、運用の途中でデータベースの切り替えの手間を省くため、初めからスケーラブルなデータベース（例えば、PostgreSQL など）を使用した方が良いでしょう。詳細については、[データベースの概要](database-overview) を参照してください。このチュートリアルでは、デフォルトの SQLite データベースを使用します。
 
-## Scaffolding code for our models {#scaffolding-code-for-our-models}
+## モデルのコードの自動生成 {#scaffolding-code-for-our-models}
 
-Blitz provides a handy CLI command called [`generate`](./cli-generate) for
-scaffolding out boilerplate code. We'll use `generate` to create two
-models: `Question` and `Choice`. A `Question` has the text of the question
-and a list of choices. A `Choice` has the text of the choice, a vote
-count, and an associated question. Blitz will automatically generate an
-id, a creation timestamp, and a last updated timestamp for both models.
+Blitz には [`generate`](./cli-generate) というコード自動生成に便利な CLI コマンドがあります。ここでは、`generate`を使って `Question`（質問）と `Choice`（選択肢）の 2 つのモデルを作成します。 `Question` は質問のテキストと選択肢のリストを持ちます。`Choice`には、選択肢のテキスト、投票数、選択肢に紐付く質問が含まれます。Blitz は両方のモデルについて、ID、作成タイムスタンプ、最終更新タイムスタンプを自動的に生成します。
 
-#### First, we'll generate everything pertaining to the `Question` model:
+#### Step1: `Question` モデルに関連する生成
+
+次のコマンドで`Question` モデルを生成しましょう。
 
 ```sh
 blitz generate all question text:string
 ```
 
-And when prompted, press the **Enter** to run `prisma migrate` which will
-update your database schema with the new model. It will ask for a name, so
-type something like "add question".
+コマンドの入力を促されたら、**Enter** を押して `prisma migrate` （マイグレーション） を実行してください。マイグレーションの名前を聞かれるので、"add question" と入力してください。
 
 ```
 CREATE    app/pages/questions/[questionId].tsx
@@ -262,21 +225,17 @@ migrations/
 Everything is now in sync.
 ```
 
-The `generate` command with a type of `all` generates a model and queries,
-mutation and page files. See the [Blitz generate](./cli-generate) page for
-a list of available type options.
+`generate` コマンドに `all` 型を指定すると、モデルとクエリ、Mutation、ページファイルが生成されます。利用可能な型のオプションの一覧は [Blitz generate](./cli-generate) のページを参照してください。
 
-#### Next we'll generate the `Choice` model with corresponding queries and mutations.
+#### Step2: `Choice` モデルとそれに対応するクエリと Mutation の生成
 
-We'll pass a type of `resource` this time as we don't need to generate
-pages for the `Choice` model:
+今回は `Choice` モデルのページを生成する必要がないので、`resource` の型を渡すことにします。
 
 ```sh
 blitz generate resource choice text votes:int:default=0 belongsTo:question
 ```
 
-Again, hit **Enter** when prompted to run the migration and enter a name
-for the migration.
+マイグレーションを実行するように促されたら、再度 **Enter** を押し、マイグレーションの名前を入力します。
 
 ```
 CREATE    app/choices/queries/getChoice.ts
@@ -300,10 +259,9 @@ CREATE    app/choices/mutations/updateChoice.ts
 ? Run 'prisma migrate dev' to update your database? (Y/n) › true
 ```
 
-#### Lastly let's update the `Question` model to have a relationship back to `Choice`.
+#### Step3: `Question` モデルを更新して `Choice` との関係を持たせる
 
-Open `db/schema.prisma` and add `choices Choice[]` to the `Question`
-model.
+`db/schema.prisma` を開き、`Question` モデルに `choices Choice[]` を追加します。
 
 ```diff
 model Question {
@@ -315,32 +273,29 @@ model Question {
 }
 ```
 
-And then run `blitz prisma generate` to update prisma client for that
-schema change. This doesn't require a database migration because there's
-not an actual field being added to the `Question` model in the database.
+そして、`blitz prisma generate`を実行して、スキーマの変更に合わせて prisma クライアントを更新します。
+今回はデータベースの `Question` モデルに実際のフィールドが追加されていないため、データベースのマイグレーションを必要としません。
 
-## Playing with the Prisma database client {#playing-with-the-prisma-database-client}
+## Prisma データベースクライアントを試す {#playing-with-the-prisma-database-client}
 
-Now, let’s hop into the interactive Blitz shell and play around with the
-Prisma database client that Blitz gives you. To start the Blitz console,
-use this command:
+ここで、対話型の Blitz コンソールを使って、Blitz が提供する Prisma データベースクライアントで遊んでみましょう。Blitz コンソールを起動するには、次のコマンドを使用します。
 
 ```sh
 blitz console
 ```
 
-Once you’re in the console, explore the database client:
+コンソールに入ったら、データベースクライアントを使ってみましょう。
 
 ```sh
-# No questions are in the system yet.
+# 質問はまだ存在していません。
 ⚡ > await db.question.findMany()
 []
 
-# Create a new Question:
+# 質問を作成します。
 ⚡ > let q = await db.question.create({data: {text: "What's new?"}})
 undefined
 
-# See the entire object:
+# オブジェクト全体を見てみましょう。
 ⚡ > q
 {
   id: 1,
@@ -349,11 +304,11 @@ undefined
   text: "What's new?"
 }
 
-# Or, access individual values on the object:
+# または、オブジェクト上の個々の値にアクセスします。
 ⚡ > q.text
 "What's new?"
 
-# Change values by using the update function:
+# update関数を使用して値を変更します。
 ⚡ > q = await db.question.update({where: {id: 1}, data: {text: "What's up?"}})
 {
   id: 1,
@@ -362,7 +317,7 @@ undefined
   text: "What's up?"
 }
 
-# db.question.findMany() now displays all the questions in the database:
+# db.question.findMany()を再度実行すると、データベースに追加されたすべての質問を表示するようになりました。
 ⚡ > await db.question.findMany()
 [
   {
@@ -374,28 +329,21 @@ undefined
 ]
 ```
 
-## Update generated code for our model attributes {#update-generated-code-for-our-model-attributes}
+## モデル属性用に生成されたコードを更新 {#update-generated-code-for-our-model-attributes}
 
 <!-- prettier-ignore-start -->
 :::info
-Before running the app again, we need to customize some of the
-code that has been generated. Ultimately, these fixes will not be needed -
-but for now, we need to work around a couple outstanding issues.
+アプリを再度実行する前に、生成されたコードの一部をカスタマイズする必要があります。将来的にはこれらの修正をする必要は無くなりますが、今のところはいくつかの未解決の問題を回避する必要があります。
 :::
 <!-- prettier-ignore-end -->
 
-The generated page content does not currently use the actual model
-attributes you defined during generation. It will soon, but in the
-meantime, let's fix the generated pages.
+生成されたページの内容は、現在のところ、生成時に定義した実際のモデル属性を使用していません。すぐに使用するようになりますが、それまでの間は生成されたページを修正していきましょう。
 
-### Question pages {#question-pages}
+### 質問ページ {#question-pages}
 
-[//]:
-  #
-  "Remove the following section once `generate` uses actual model attributes"
+[//]: # "`generate` が実際のモデル属性を使用する場合は、以下のセクションを削除しましょう"
 
-Jump over to `app/pages/questions/index.tsx`. Notice that a
-`QuestionsList` component has been generated for you:
+`app/pages/questions/index.tsx` にジャンプしてください。 `QuestionsList` コンポーネントが生成されていることに注意してください。
 
 ```tsx
 // app/pages/questions/index.tsx
@@ -435,9 +383,7 @@ export const QuestionsList = () => {
 }
 ```
 
-This won’t work though! Remember that the `Question` model we created
-above doesn’t have any `name` field. To fix this, replace `question.name`
-with `question.text`:
+しかし、これではうまくいきません。上で作成した `Question` モデルには `name` フィールドがないことをえておいてください。これを修正するには、`question.name` を `question.text` に置き換えます。
 
 ```diff
 // app/pages/questions/index.tsx
@@ -478,9 +424,7 @@ export const QuestionsList = () => {
 }
 ```
 
-Next, let’s apply a similar fix to
-`app/questions/components/QuestionForm.tsx`. In the form submission,
-replace the `LabeledTextField` `name` to be `"text"`
+次に、同様の修正を `app/questions/components/QuestionForm.tsx` にも適用してみましょう。フォームの投稿において、`LabeledTextField` の `name` を `text` に置き換えます。
 
 ```diff
 export function QuestionForm<S extends z.ZodType<any, any>>(
@@ -495,10 +439,9 @@ export function QuestionForm<S extends z.ZodType<any, any>>(
 }
 ```
 
-### `createQuestion` mutation {#create-question-mutation}
+### `createQuestion` Mutation {#create-question-mutation}
 
-In `app/questions/mutations/createQuestion.ts`, we need to update the
-`CreateQuestion` zod validation schema to use `text` instead of `name`.
+`app/questions/mutations/createQuestion.ts` で、`CreateQuestion` の zod のバリデーションスキーマを更新して `name` の代わりに `text` を使うようにする必要があります。
 
 ```diff
 // app/questions/mutations/createQuestion.ts
@@ -512,10 +455,9 @@ const CreateQuestion = z
 // ...
 ```
 
-### `updateQuestion` mutation {#update-question-mutation}
+### `updateQuestion` Mutation {#update-question-mutation}
 
-In `app/questions/mutations/updateQuestion.ts`, we need to update the
-`UpdateQuestion` zod validation schema to use `text` instead of `name`.
+`app/questions/mutations/updateQuestion.ts` で、`UpdateQuestion` の zod のバリデーションスキーマを`name` の代わりに `text` を使うように更新する必要があります。
 
 ```diff
 // app/questions/mutations/updateQuestion.ts
@@ -530,22 +472,18 @@ const UpdateQuestion = z
 // ...
 ```
 
-### `deleteQuestion` mutation {#delete-question-mutation}
+### `deleteQuestion` Mutation {#delete-question-mutation}
 
-[//]: # "Remove this section once Prisma supports cascading deletes"
+[//]: # "Prismaがカスケード削除をサポートしたら、このセクションを削除する"
 
-Prisma does not yet support "cascading deletes". In the context of this
-tutorial, that means it does not currently delete the `Choice` data when
-deleting a `Question`. We need to temporarily augment the generated
-`deleteQuestion` mutation in order to do this manually. Open up
-`app/questions/mutations/deleteQuestion.ts` in your text editor and add
-the following to the top of the function body:
+Prisma はまだ 「カスケード削除(特定のデータを削除したときに、関連するデータも一緒に削除する機能)」をサポートしていません。このチュートリアルにおける「カスケード削除の未対応」とは、`Question` を削除する際に `Choice` データを削除しないことを意味します。
+「`Question`に関連する`Choice`も一緒に削除する」ロジックを手動で実装するためには、生成された`deleteQuestion` Mutation を一時的に拡張する必要があります。テキストエディタで`app/questions/mutations/deleteQuestion.ts` を開き、関数本体の先頭に以下を追加してください。
 
 ```ts
 await db.choice.deleteMany({where: {questionId: id}})
 ```
 
-The end result should be as such:
+最終的には次のようになるはずです。
 
 ```diff
 // app/questions/mutations/deleteQuestion.ts
@@ -562,22 +500,17 @@ export default resolver.pipe(
 )
 ```
 
-This mutation will now delete the choices associated with the question
-prior to deleting the question itself.
+この Mutation は、`Question` 自体を削除する前に、`Question` に関連する `Choice` を削除するようになりました。
 
-#### Now try creating, updating, and deleting questions
+#### 質問の作成・更新・削除を試そう
 
-Great! Now make sure your app is running. If it isn’t, run `blitz dev` in
-your terminal, and visit `localhost:3000/questions`. Try creating
-questions, editing, and deleting them.
+いいですね！アプリが実行されていることを確認してください。実行されていない場合、コマンドラインで`blitz dev` を実行し、`localhost:3000/questions` にアクセスしてください。質問の作成、編集、削除を試してみてください。
 
-## Adding choices to the question form {#adding-choices-to-the-question-form}
+## 質問フォームに選択肢を追加する {#adding-choices-to-the-question-form}
 
-You’re doing great so far! The next thing we’ll do is add choices to our
-question form. Open `app/questions/components/QuestionForm.tsx` in your
-editor.
+お疲れ様です！ 次は質問フォームに選択肢を追加します。エディタで`app/questions/components/QuestionForm.tsx` を開いてください。
 
-Add three more `<LabeledTextField>` components as choices.
+さらに、3 つの選択肢 `<LabeledTextField>` コンポーネントを追加します。
 
 ```diff
 export function QuestionForm<S extends z.ZodType<any, any>>(
@@ -594,8 +527,7 @@ export function QuestionForm<S extends z.ZodType<any, any>>(
 }
 ```
 
-Next open `app/pages/questions/new.tsx` and set `initialValues` to be as
-follows:
+次に `app/pages/questions/new.tsx` を開き、`initialValues` を以下のように設定します。
 
 ```diff
       <QuestionForm
@@ -616,10 +548,7 @@ follows:
       />
 ```
 
-Then open `app/questions/mutations/createQuestion.ts` and update the zod
-schema so that the choice data is accepted in the mutation. And we also
-need to update the `db.question.create` call so that the choices will also
-be created.
+それから `app/questions/mutations/createQuestion.ts` を開き、Mutation で選択肢のデータが受け入れられるように zod スキーマを更新します。また、選択肢が作成されるように `db.question.create` の呼び出し処理を更新する必要があります。
 
 ```diff
 // app/questions/mutations/createQuestion.ts
@@ -648,19 +577,14 @@ export default resolver.pipe(
 )
 ```
 
-#### Try it out
+#### お試し
 
-Now you can go to `localhost:3000/questions/new` and create a new question
-with choices!
+これで、`localhost:3000/questions/new` を開いて、新しい質問と選択肢を作成することができます。
 
-## Listing choices {#listing-choices}
+## リストの選択 {#listing-choices}
 
-Time for a breather. Go back to `localhost:3000/questions` in your browser
-and look at all the questions you‘ve created. How about we list these
-questions’ choices here too? First, we need to customize the question
-queries. In Prisma, you need to manually let the client know that you want
-to query for nested relations. Change your `getQuestion.ts` and
-`getQuestions.ts` files to look like this:
+休憩です。ブラウザの `localhost:3000/questions` に戻って、作成したすべての質問を見てください。これらの質問に、選択肢を一覧表示してみましょう。 まず、質問のクエリをカスタマイズする必要があります。
+Prisma では、ネストされたリレーションもクエリに含める場合には、手動で設定する必要があります。あなたの `getQuestion.ts` と `getQuestions.ts` ファイルを以下のように変更してください。
 
 ```diff
 // app/questions/queries/getQuestion.ts
@@ -722,10 +646,7 @@ export default resolver.pipe(
 )
 ```
 
-Now hop back to our main questions page
-(`app/pages/questions/index.tsx`)in your editor, and we can list the
-choices of each question. And add this code beneath the `Link` in our
-`QuestionsList`:
+エディタでメインの質問ページ (`app/pages/questions/index.tsx`) に戻って、各質問の選択肢を一覧表示してみましょう。そして、このコードを `QuestionsList` の `Link` の下に追加してください。
 
 ```diff
 // app/pages/questions/index.tsx
@@ -750,18 +671,15 @@ choices of each question. And add this code beneath the `Link` in our
 // ...
 ```
 
-Now check `/questions` in the browser. **Magic!**
+ブラウザで `/questions` をチェックしてみてください。 **最高です！**
 
-## Let’s let people vote on these questions! {#let-people-vote-on-questions}
+## 質問に投票させよう！ {#let-people-vote-on-questions}
 
-Open `app/pages/questions/[questionId].tsx` in your editor. First, we’re
-going to improve this page somewhat.
+エディタで `app/pages/questions/[questionId].tsx` を開いてください。まず、このページをすこし改善します。
 
-1. Replace `<h1>Question {question.id}</h1>` with
-   `<h1>{question.text}</h1>`.
+1. `<h1>Question {question.id}</h1>` を `<h1>{question.text}</h1>` に置き換えます。
 
-2. Delete the `pre` element, and copy in our choices list which we wrote
-   before:
+2. `pre` 要素を削除し、先ほど書いた選択肢リストをコピーします。
 
 ```tsx
 <ul>
@@ -773,8 +691,7 @@ going to improve this page somewhat.
 </ul>
 ```
 
-If you go back to your browser, your page should now look something like
-this!
+ブラウザに戻ると、あなたのページはこのようになっているはずです。
 
 <img
   width="567"
@@ -782,10 +699,9 @@ this!
   src="https://user-images.githubusercontent.com/24858006/80387990-3c3d8b80-88a1-11ea-956a-5be85f1e8f12.png"
 />
 
-#### Now it’s time to add voting!
+#### 投票を追加する時です！
 
-First we need to open `app/choices/mutations/updateChoice.ts`, update the
-zod schema, and add add a vote increment.
+まず、`app/choices/mutations/updateChoice.ts` を開き、zod スキーマを更新し、投票数を追加する必要があります。
 
 ```diff
 const UpdateChoice = z
@@ -810,10 +726,9 @@ export default resolver.pipe(
 )
 ```
 
-Now go back to `app/pages/questions/[questionId].tsx` and make the
-following changes:
+ここで `app/pages/questions/[questionId].tsx` に戻り、以下のように
 
-In our `li`, add a `button` like so:
+`li` に `button` を追加してください。
 
 ```tsx
 <li key={choice.id}>
@@ -822,8 +737,7 @@ In our `li`, add a `button` like so:
 </li>
 ```
 
-Then, import the `updateChoice` mutation we updated and create a
-`handleVote` function in our page:
+次に、更新した `updateChoice` Mutation をインポートして `handleVote` 関数を作成します。
 
 ```diff
 // app/pages/questions/[questionId].tsx
@@ -850,8 +764,7 @@ export const Question = () => {
   return (
 ```
 
-And then we need to update the question `useQuery` call to return the
-`refetch` function which we use inside `handleVote`:
+そして、`handleVote`の中で使用する関数 `refetch` を返すために質問の `useQuery` コールを更新する必要があります。
 
 ```diff
 // app/pages/questions/[questionId].tsx
@@ -862,13 +775,13 @@ And then we need to update the question `useQuery` call to return the
 //...
 ```
 
-Finally, we’ll tell our new `button` to call that function!
+最後に、新しい `button` にその関数を呼び出すようにしましょう！
 
 ```tsx
 <button onClick={() => handleVote(choice.id)}>Vote</button>
 ```
 
-The final `Question` component should now look like this:
+最終的な `Question` コンポーネントは以下のようになります。
 
 ```tsx
 export const Question = () => {
@@ -926,14 +839,11 @@ export const Question = () => {
 }
 ```
 
-## Lastly, let's allow editing choices for an existing question {#edit-choices-for-question}
+## 最後に、既存の質問の編集の選択肢を許可しよう {#edit-choices-for-question}
 
-If you click the **Edit** button on one of your existing questions, you'll
-see it uses the same form as creating questions. So that part is already
-done! We only need to update our mutation.
+既存の質問の **Edit** ボタンをクリックすると、質問を作成するのと同じフォームを使用していることがわかります。これですでに完了です。あとは Mutation を更新するだけです。
 
-Open `app/questions/mutations/updateQuestion.ts` and make the following
-changes:
+`app/questions/mutations/updateQuestion.ts` を開き、以下の変更を行ってください。
 
 ```diff
 // app/questions/mutations/updateQuestion.ts
@@ -977,25 +887,14 @@ export default resolver.pipe(
 )
 ```
 
-[`upsert`](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#upsert)
-is a special operation that means, "If this item exists, update it. Else
-create it". This is perfect for this case because we didn't require the
-user to add three choices when creating the question. So if later the user
-adds another choice by editing the question, then it'll be created here.
+[`upsert`](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#upsert) は、「この項目が存在すればそれを更新する、存在しなければ作成する」という意味です。質問を作成する際にユーザーが 3 つの選択肢を追加することを必須としていないので、このケースには最適です。後でユーザーが質問を編集して別の選択肢を追加した場合、ここに作成されます。
 
-## Conclusion {#conclusion}
+## まとめ {#conclusion}
 
-🥳 Congrats! You created your very own Blitz app! Have fun playing around
-with it, or sharing it with your friends. Now that you’ve finished this
-tutorial, why not try making your voting app even better? You could try:
+おめでとうございます！🥳 あなただけの Blitz アプリが完成しました。楽しく遊んだり、友達と共有したりしてみてください。このチュートリアルは終了しましたが、投票アプリをより良いものにしてみませんか？次のことを試してみましょう。
 
-- Adding styling (Hint, try `blitz install tailwind` or
-  `blitz install chakra-ui`)
-- Showing some more statistics about votes
-- Deploying live on [Render](./deploy-render) or [Vercel](./deploy-vercel)
+- スタイリングの追加 (ヒント: `blitz install tailwind` や `blitz install chakra-ui` を試してみてください)
+- 投票に関する統計情報を追加する
+- [Render](./deploy-render) または [Vercel](./deploy-vercel) をつかったホスティング
 
-If you want to share your project with the world wide Blitz community
-there is no better place to do that than on Discord.
-
-Visit [discord.blitzjs.com](https://discord.blitzjs.com). Then, post the
-link to the **#built-with-blitz** channel to share it with everyone!
+あなたのプロジェクトを世界中の Blitz コミュニティと共有したい場合、Discord 以上に良い場所はありません。[discord.blitzjs.com](https://discord.blitzjs.com)にアクセスしてください。そして、**#built-with-with-blitz** チャンネルにリンクを投稿して、みんなで共有しましょう！
