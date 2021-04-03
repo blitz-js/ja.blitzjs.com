@@ -69,7 +69,7 @@ const Home = ({randomContributors}) => {
                       variant="outline"
                       className="w-1/3 lg:w-auto rounded-r-xl"
                     >
-                      Github
+                      GitHub
                     </ButtonLink>
                   </div>
                 </div>
@@ -441,7 +441,8 @@ const getStaticProps = async () => {
   }
 }
 
-Home.layoutProps = {
+
+Home.meta = {
   meta: {
     title: "Blitz.js - The Fullstack React Framework",
     description: `Blitz は Next.js上に構築されている “Zero-API” Dataレイヤーが特徴的なパワフルなフレームワークです。`,
