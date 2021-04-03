@@ -1,10 +1,12 @@
-import { Header } from "@/components/Header"
-import { Octokit } from "@octokit/rest"
-import { Footer } from "@/components/home/Footer"
-import { useState, useEffect } from "react"
-import { SocialCards } from "../components/SocialCards"
+import {Octokit} from "@octokit/rest"
+import {useEffect, useState} from "react"
 
-const LanguagesPage = ({ languages }) => {
+import {Header} from "@/components/Header"
+import {Footer} from "@/components/home/Footer"
+import {SocialCards} from "@/components/SocialCards"
+import {getGitHubFile} from "@/utils/getGitHubFile"
+
+const LanguagesPage = ({languages}) => {
   const [navIsOpen, setNavIsOpen] = useState(false)
 
   useEffect(() => {
@@ -76,7 +78,7 @@ const getStaticProps = async () => {
   })
 
   // Theorically, this will break when we reach 1000+ languages
-  const { data } = await octokit.repos.getContent({
+  const {data} = await octokit.repos.getContent({
     owner: "blitz-js",
     repo: "blitzjs.com-translation",
     path: "langs",
@@ -84,12 +86,14 @@ const getStaticProps = async () => {
 
   const languages = await Promise.all(
     data.map(async (lang) => {
-      const [{ data: langJson }, { data: langIssue }] = await Promise.all([
+      const [langMeta, {data: langIssue}] = await Promise.all([
         // Gets each lang.json content, because it doesn't come with the first request `data`
-        octokit.repos.getContent({
+        getGitHubFile({
+          octokit,
           owner: "blitz-js",
           repo: "blitzjs.com-translation",
           path: lang.path,
+          json: true,
         }),
         octokit.issues.get({
           owner: "blitz-js",
@@ -97,10 +101,6 @@ const getStaticProps = async () => {
           issue_number: 1,
         }),
       ])
-
-      const langMeta = JSON.parse(
-        Buffer.from(langJson.content, langJson.encoding).toString("utf-8")
-      )
 
       const checkedBoxes = langIssue.body.match(/\* \[x\]/gi)
       const totalBoxes = langIssue.body.match(/\* \[(x| )?\]/gi)
@@ -113,8 +113,8 @@ const getStaticProps = async () => {
         ? 0
         : Math.round((checkedBoxes.length / totalBoxes.length) * 100)
 
-      return { ...langMeta, completition }
-    })
+      return {...langMeta, completition}
+    }),
   )
 
   return {
@@ -122,19 +122,17 @@ const getStaticProps = async () => {
       languages: languages.sort((a, b) =>
         a.completition === b.completition
           ? a.name.localeCompare(b.name)
-          : a.completition > b.completition
+          : a.completition > b.completition,
       ),
     },
     revalidate: 3 * 60 * 60, // 3 hours
   }
 }
 
-LanguagesPage.layoutProps = {
-  meta: {
-    title: "Languages - Blitz.js",
-    description: `Blitz is a hyper-productive fullstack React framework that's built on Next.js and features a "Zero-API" data layer.`,
-  },
+LanguagesPage.meta = {
+  title: "Languages - Blitz.js",
+  description: `Blitz is a hyper-productive fullstack React framework that's built on Next.js and features a "Zero-API" data layer.`,
 }
 
 export default LanguagesPage
-export { getStaticProps }
+export {getStaticProps}

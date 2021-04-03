@@ -1,15 +1,16 @@
 import "typeface-libre-franklin"
 import "typeface-roboto"
 import "typeface-roboto-mono"
-import "../css/main.css"
+import "@/styles/main.css"
 import "focus-visible"
-import { Fragment, useEffect } from "react"
-import { Title } from "@/components/Title"
-import Router from "next/router"
-// import ProgressBar from "@badrap/bar-of-progress"
-import Head from "next/head"
-import { ThemeProvider } from "next-themes"
+
+import {Head} from "blitz"
 import * as Fathom from "fathom-client"
+// import ProgressBar from "@badrap/bar-of-progress"
+import {ThemeProvider} from "next-themes"
+import {useEffect} from "react"
+
+import {Title} from "@/components/Title"
 
 // const progress = new ProgressBar({
 //   size: 2,
@@ -26,17 +27,14 @@ import * as Fathom from "fathom-client"
 // }
 
 // Router.events.on("routeChangeStart", progress.start)
-Router.events.on("routeChangeComplete", () => {
-  // progress.finish()
-  window.scrollTo(0, 0)
-})
+// Router.events.on("routeChangeComplete", () => {
+// progress.finish()
+// window.scrollTo(0, 0)
+// })
 // Router.events.on("routeChangeError", progress.finish)
 
-export default function App({ Component, pageProps, router }) {
-  const Layout = Component.layoutProps?.Layout || Fragment
-  const layoutProps = Component.layoutProps?.Layout ? { layoutProps: Component.layoutProps } : {}
-  const meta = Component.layoutProps?.meta || {}
-  const description = meta.metaDescription || meta.description
+export default function App({Component, pageProps, router}) {
+  const meta = Component.meta || {}
 
   useEffect(() => {
     // Initialize Fathom when the app loads
@@ -47,6 +45,10 @@ export default function App({ Component, pageProps, router }) {
 
     function onRouteChangeComplete() {
       Fathom.trackPageview()
+
+      if (typeof window !== "undefined") {
+        window.scrollTo(0, 0)
+      }
     }
     // Record a pageview when route changes
     router.events.on("routeChangeComplete", onRouteChangeComplete)
@@ -63,16 +65,14 @@ export default function App({ Component, pageProps, router }) {
       <Head>
         <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
         <meta key="twitter:site" name="twitter:site" content="@blitz_js" />
-        <meta key="twitter:description" name="twitter:description" content={description} />
+        <meta key="twitter:description" name="twitter:description" content={meta.description} />
         <meta key="twitter:creator" name="twitter:creator" content="@blitz_js" />
         <meta key="og:url" property="og:url" content={`https://blitzjs.com${router.pathname}`} />
         <meta key="og:type" property="og:type" content="article" />
-        <meta key="og:description" property="og:description" content={description} />
+        <meta key="og:description" property="og:description" content={meta.description} />
       </Head>
       <ThemeProvider defaultTheme="dark" attribute="class">
-        <Layout {...layoutProps}>
-          <Component {...pageProps} />
-        </Layout>
+        <Component {...pageProps} />
       </ThemeProvider>
     </>
   )
