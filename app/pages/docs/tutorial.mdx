@@ -234,9 +234,16 @@ Everything is now in sync.
 ```sh
 blitz generate resource choice text votes:int:default=0 belongsTo:question
 ```
+
 If you get an error run `blitz prisma format`
 
+<<<<<<< HEAD
 マイグレーションを実行するように促されたら、再度 **Enter** を押し、マイグレーションの名前を入力します。
+=======
+Note that this doesn't require a database migration because we haven't
+added the `Choice` field to the `Question` model yet. So we are choosing
+`false` when prompted to run the migration:
+>>>>>>> 82436ec0678e19c73c9c61ff701e0569a9fe4a67
 
 ```
 CREATE    app/choices/queries/getChoice.ts
@@ -257,7 +264,7 @@ CREATE    app/choices/mutations/updateChoice.ts
 >   questionId Int
 > }
 
-? Run 'prisma migrate dev' to update your database? (Y/n) › true
+? Run 'prisma migrate dev' to update your database? (Y/n) › false
 ```
 
 #### Step3: `Question` モデルを更新して `Choice` との関係を持たせる
@@ -274,8 +281,36 @@ model Question {
 }
 ```
 
+<<<<<<< HEAD
 そして、`blitz prisma generate`を実行して、スキーマの変更に合わせて prisma クライアントを更新します。
 今回はデータベースの `Question` モデルに実際のフィールドが追加されていないため、データベースのマイグレーションを必要としません。
+=======
+Now we can run the migration to update our database:
+
+```sh
+blitz prisma migrate dev
+```
+
+And again, enter a name for the migration, like "add choice":
+
+```
+Environment variables loaded from .env
+Prisma schema loaded from db/schema.prisma
+Datasource "db": SQLite database "db.sqlite" at "file:./db.sqlite"
+
+✔ Name of migration … add choice
+The following migration(s) have been created and applied from new schema changes:
+
+migrations/
+  └─ 20210412175528_add_choice/
+    └─ migration.sql
+
+Your database is now in sync with your schema.
+```
+
+Now our database is ready and a Prisma client is also generated. Lets move
+on to play with the Prisma client!
+>>>>>>> 82436ec0678e19c73c9c61ff701e0569a9fe4a67
 
 ## Prisma データベースクライアントを試す {#playing-with-the-prisma-database-client}
 
@@ -352,14 +387,22 @@ undefined
 export const QuestionsList = () => {
   const router = useRouter()
   const page = Number(router.query.page) || 0
-  const [{questions, hasMore}] = usePaginatedQuery(getQuestions, {
-    orderBy: {id: "asc"},
-    skip: ITEMS_PER_PAGE * page,
-    take: ITEMS_PER_PAGE,
-  })
+  const [{questions, hasMore}, {isPreviousData}] = usePaginatedQuery(
+    getQuestions,
+    {
+      orderBy: {id: "asc"},
+      skip: ITEMS_PER_PAGE * page,
+      take: ITEMS_PER_PAGE,
+    },
+  )
 
   const goToPreviousPage = () => router.push({query: {page: page - 1}})
-  const goToNextPage = () => router.push({query: {page: page + 1}})
+
+  const goToNextPage = () => {
+    if (!isPreviousData && hasMore) {
+      router.push({query: {page: page + 1}})
+    }
+  }
 
   return (
     <div>
@@ -376,7 +419,10 @@ export const QuestionsList = () => {
       <button disabled={page === 0} onClick={goToPreviousPage}>
         Previous
       </button>
-      <button disabled={!hasMore} onClick={goToNextPage}>
+      <button
+        disabled={isPreviousData || !hasMore}
+        onClick={goToNextPage}
+      >
         Next
       </button>
     </div>
@@ -392,14 +438,21 @@ export const QuestionsList = () => {
 export const QuestionsList = () => {
   const router = useRouter()
   const page = Number(router.query.page) || 0
-  const [{questions, hasMore}] = usePaginatedQuery(getQuestions, {
-    orderBy: {id: "asc"},
-    skip: ITEMS_PER_PAGE * page,
-    take: ITEMS_PER_PAGE,
-  })
+  const [{questions, hasMore}, {isPreviousData}] = usePaginatedQuery(
+    getQuestions, {
+      orderBy: {id: "asc"},
+      skip: ITEMS_PER_PAGE * page,
+      take: ITEMS_PER_PAGE,
+    },
+  )
 
   const goToPreviousPage = () => router.push({query: {page: page - 1}})
-  const goToNextPage = () => router.push({query: {page: page + 1}})
+
+  const goToNextPage = () => {
+    if (!isPreviousData && hasMore) {
+      router.push({query: {page: page + 1}})
+    }
+  }
 
   return (
     <div>
@@ -417,7 +470,7 @@ export const QuestionsList = () => {
       <button disabled={page === 0} onClick={goToPreviousPage}>
         Previous
       </button>
-      <button disabled={!hasMore} onClick={goToNextPage}>
+      <button disabled={isPreviousData || !hasMore} onClick={goToNextPage}>
         Next
       </button>
     </div>
