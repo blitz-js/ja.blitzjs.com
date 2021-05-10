@@ -162,7 +162,13 @@ const Home: BlitzPage = () => {
 //...
 ```
 
+<<<<<<< HEAD
 保存するとブラウザでページが更新されるはずです。このようにしてページを好きなようにカスタマイズできます。準備ができたら、次のセクションに進みましょう。
+=======
+Save the file and you should see the page update in your browser. You can
+customize this as much as you want. When you’re ready, move on to the
+next section.
+>>>>>>> bfbb00492a38c56fed7fd256b2f2399d1b3484a3
 
 ## データベースの設定 {#database-setup}
 
@@ -234,9 +240,16 @@ Everything is now in sync.
 ```sh
 blitz generate resource choice text votes:int:default=0 belongsTo:question
 ```
+
 If you get an error run `blitz prisma format`
 
+<<<<<<< HEAD
 マイグレーションを実行するように促されたら、再度 **Enter** を押し、マイグレーションの名前を入力します。
+=======
+Note that this doesn't require a database migration because we haven't
+added the `Choice` field to the `Question` model yet. So we are choosing
+`false` when prompted to run the migration:
+>>>>>>> bfbb00492a38c56fed7fd256b2f2399d1b3484a3
 
 ```
 CREATE    app/choices/queries/getChoice.ts
@@ -257,7 +270,7 @@ CREATE    app/choices/mutations/updateChoice.ts
 >   questionId Int
 > }
 
-? Run 'prisma migrate dev' to update your database? (Y/n) › true
+? Run 'prisma migrate dev' to update your database? (Y/n) › false
 ```
 
 #### Step3: `Question` モデルを更新して `Choice` との関係を持たせる
@@ -274,8 +287,36 @@ model Question {
 }
 ```
 
+<<<<<<< HEAD
 そして、`blitz prisma generate`を実行して、スキーマの変更に合わせて prisma クライアントを更新します。
 今回はデータベースの `Question` モデルに実際のフィールドが追加されていないため、データベースのマイグレーションを必要としません。
+=======
+Now we can run the migration to update our database:
+
+```sh
+blitz prisma migrate dev
+```
+
+And again, enter a name for the migration, like "add choice":
+
+```
+Environment variables loaded from .env
+Prisma schema loaded from db/schema.prisma
+Datasource "db": SQLite database "db.sqlite" at "file:./db.sqlite"
+
+✔ Name of migration … add choice
+The following migration(s) have been created and applied from new schema changes:
+
+migrations/
+  └─ 20210412175528_add_choice/
+    └─ migration.sql
+
+Your database is now in sync with your schema.
+```
+
+Now our database is ready and a Prisma client is also generated. Lets move
+on to play with the Prisma client!
+>>>>>>> bfbb00492a38c56fed7fd256b2f2399d1b3484a3
 
 ## Prisma データベースクライアントを試す {#playing-with-the-prisma-database-client}
 
@@ -332,11 +373,21 @@ undefined
 
 ## モデル属性用に生成されたコードを更新 {#update-generated-code-for-our-model-attributes}
 
+<<<<<<< HEAD
 <!-- prettier-ignore-start -->
 :::info
 アプリを再度実行する前に、生成されたコードの一部をカスタマイズする必要があります。将来的にはこれらの修正をする必要は無くなりますが、今のところはいくつかの未解決の問題を回避する必要があります。
 :::
 <!-- prettier-ignore-end -->
+=======
+<Card type="info">
+
+Before running the app again, we need to customize some of the code that
+has been generated. Ultimately, these fixes will not be needed - but for
+now, we need to work around a couple outstanding issues.
+
+</Card>
+>>>>>>> bfbb00492a38c56fed7fd256b2f2399d1b3484a3
 
 生成されたページの内容は、現在のところ、生成時に定義した実際のモデル属性を使用していません。すぐに使用するようになりますが、それまでの間は生成されたページを修正していきましょう。
 
@@ -352,14 +403,23 @@ undefined
 export const QuestionsList = () => {
   const router = useRouter()
   const page = Number(router.query.page) || 0
-  const [{questions, hasMore}] = usePaginatedQuery(getQuestions, {
-    orderBy: {id: "asc"},
-    skip: ITEMS_PER_PAGE * page,
-    take: ITEMS_PER_PAGE,
-  })
+  const [{ questions, hasMore }, { isPreviousData }] = usePaginatedQuery(
+    getQuestions,
+    {
+      orderBy: { id: "asc" },
+      skip: ITEMS_PER_PAGE * page,
+      take: ITEMS_PER_PAGE,
+    }
+  )
 
-  const goToPreviousPage = () => router.push({query: {page: page - 1}})
-  const goToNextPage = () => router.push({query: {page: page + 1}})
+  const goToPreviousPage = () =>
+    router.push({ query: { page: page - 1 } })
+
+  const goToNextPage = () => {
+    if (!isPreviousData && hasMore) {
+      router.push({ query: { page: page + 1 } })
+    }
+  }
 
   return (
     <div>
@@ -376,7 +436,10 @@ export const QuestionsList = () => {
       <button disabled={page === 0} onClick={goToPreviousPage}>
         Previous
       </button>
-      <button disabled={!hasMore} onClick={goToNextPage}>
+      <button
+        disabled={isPreviousData || !hasMore}
+        onClick={goToNextPage}
+      >
         Next
       </button>
     </div>
@@ -392,14 +455,21 @@ export const QuestionsList = () => {
 export const QuestionsList = () => {
   const router = useRouter()
   const page = Number(router.query.page) || 0
-  const [{questions, hasMore}] = usePaginatedQuery(getQuestions, {
-    orderBy: {id: "asc"},
-    skip: ITEMS_PER_PAGE * page,
-    take: ITEMS_PER_PAGE,
-  })
+  const [{questions, hasMore}, {isPreviousData}] = usePaginatedQuery(
+    getQuestions, {
+      orderBy: {id: "asc"},
+      skip: ITEMS_PER_PAGE * page,
+      take: ITEMS_PER_PAGE,
+    },
+  )
 
   const goToPreviousPage = () => router.push({query: {page: page - 1}})
-  const goToNextPage = () => router.push({query: {page: page + 1}})
+
+  const goToNextPage = () => {
+    if (!isPreviousData && hasMore) {
+      router.push({query: {page: page + 1}})
+    }
+  }
 
   return (
     <div>
@@ -417,7 +487,7 @@ export const QuestionsList = () => {
       <button disabled={page === 0} onClick={goToPreviousPage}>
         Previous
       </button>
-      <button disabled={!hasMore} onClick={goToNextPage}>
+      <button disabled={isPreviousData || !hasMore} onClick={goToNextPage}>
         Next
       </button>
     </div>
@@ -481,7 +551,7 @@ Prisma はまだ 「カスケード削除(特定のデータを削除したと�
 「`Question`に関連する`Choice`も一緒に削除する」ロジックを手動で実装するためには、生成された`deleteQuestion` Mutation を一時的に拡張する必要があります。テキストエディタで`app/questions/mutations/deleteQuestion.ts` を開き、関数本体の先頭に以下を追加してください。
 
 ```ts
-await db.choice.deleteMany({where: {questionId: id}})
+await db.choice.deleteMany({ where: { questionId: id } })
 ```
 
 最終的には次のようになるはずです。
@@ -702,7 +772,12 @@ export default resolver.pipe(
 
 #### 投票を追加する時です！
 
+<<<<<<< HEAD
 まず、`app/choices/mutations/updateChoice.ts` を開き、zod スキーマを更新し、投票数を追加する必要があります。
+=======
+First we need to open `app/choices/mutations/updateChoice.ts`, update the
+zod schema, and add a vote increment.
+>>>>>>> bfbb00492a38c56fed7fd256b2f2399d1b3484a3
 
 ```diff
 const UpdateChoice = z
@@ -789,12 +864,14 @@ export const Question = () => {
   const router = useRouter()
   const questionId = useParam("questionId", "number")
   const [deleteQuestionMutation] = useMutation(deleteQuestion)
-  const [question, {refetch}] = useQuery(getQuestion, {id: questionId})
+  const [question, { refetch }] = useQuery(getQuestion, {
+    id: questionId,
+  })
   const [updateChoiceMutation] = useMutation(updateChoice)
 
   const handleVote = async (id: number) => {
     try {
-      await updateChoiceMutation({id})
+      await updateChoiceMutation({ id })
       refetch()
     } catch (error) {
       alert("Error updating choice " + JSON.stringify(error, null, 2))
@@ -826,11 +903,11 @@ export const Question = () => {
           type="button"
           onClick={async () => {
             if (window.confirm("This will be deleted")) {
-              await deleteQuestionMutation({id: question.id})
+              await deleteQuestionMutation({ id: question.id })
               router.push("/questions")
             }
           }}
-          style={{marginLeft: "0.5rem"}}
+          style={{ marginLeft: "0.5rem" }}
         >
           Delete
         </button>
@@ -881,6 +958,9 @@ export default resolver.pipe(
 +         })),
 +       },
 +     },
++     include: {
++       choices: true,
++     },
 +   })
 
     return question
@@ -888,7 +968,23 @@ export default resolver.pipe(
 )
 ```
 
+<<<<<<< HEAD
 [`upsert`](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#upsert) は、「この項目が存在すればそれを更新する、存在しなければ作成する」という意味です。質問を作成する際にユーザーが 3 つの選択肢を追加することを必須としていないので、このケースには最適です。後でユーザーが質問を編集して別の選択肢を追加した場合、ここに作成されます。
+=======
+[`upsert`](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#upsert)
+is a special operation that means, "If this item exists, update it. Else
+create it". This is perfect for this case because we didn't require the
+user to add three choices when creating the question. So if later the user
+adds another choice by editing the question, then it'll be created here.
+
+## Cleanup
+
+In order for `yarn tsc` or `git push` to succeed, you'll need to delete
+`app/choices/mutations/createChoice.ts` (unused) or update the
+CreateChoice zod schema to include the required fields.
+
+## Conclusion {#conclusion}
+>>>>>>> bfbb00492a38c56fed7fd256b2f2399d1b3484a3
 
 ## まとめ {#conclusion}
 
