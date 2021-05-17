@@ -4,6 +4,7 @@ const {default: flattenColorPalette} = require("tailwindcss/lib/util/flattenColo
 const {toRgba} = require("tailwindcss/lib/util/withAlphaVariable")
 
 module.exports = {
+  mode: "jit",
   purge: {
     content: ["{app,pages,remark}/**/*.{js,jsx,ts,tsx}"],
     options: {
@@ -77,12 +78,6 @@ module.exports = {
         "attr-value": "#A2F679",
         string: "#A2F679",
         highlight: "rgba(134, 239, 172, 0.25)",
-      },
-
-      supplementary: {
-        yellow: "#FDEA69",
-        blue: "#69C6FD",
-        red: "#FF003D",
       },
     },
     fontSize: {
