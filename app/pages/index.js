@@ -226,7 +226,10 @@ const Home = ({randomContributors}) => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <img
+                      <Image
+                        layout="intrinsic"
+                        width="100%"
+                        height="100%"
                         src={contributor.avatar_url}
                         alt={contributor.name}
                         title={contributor.name}
