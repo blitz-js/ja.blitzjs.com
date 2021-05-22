@@ -1,89 +1,51 @@
 ---
-title: Tradeoffs
-sidebar_label: Tradeoffs
+title: トレードオフ
+sidebar_label: トレードオフ
 ---
 
-As you know, everything has tradeoffs. So what are the tradeoffs of Blitz?
+全てのものにはトレードオフ（得るものと失うもの）があります。Blitzの場合は、どうでしょうか。
 
-## Framework Lock-in {#framework-lock-in}
+## フレームワークのロックイン {#framework-lock-in}
 
-Every framework has a certain level of lock-in. If you build your app with
-React, it's very locked into React.
+全てのフレームワークには一定のレベルのロックインがあります。React でアプリを作ると、React に強くロックインされます。
 
-Blitz's level of lock-in is one level higher than Next.js. A Blitz
-codebase is not a _lot_ different than a Next.js codebase. But it is
-enough different that it wouldn't be super simple to "eject" to plain
-Next.js. For example, you'll probably use the Blitz authentication which
-is unique to Blitz. But switching to Next Auth would give you a comparable
-experience with Next.js.
+BlitzのロックインはNext.jsよりもレベルが一つ上です。BlitzのコードベースはNext.js のコードベースと比べてそれほど違いはありません。しかしBlitzは、単純なNext.jsに非常に簡単に”EJECT”できない程度には十分違いがあります。例えば、あなたはBlitzに特化したBlitzの認証を使うでしょう。ですがNext Authに切り替えると、Next.jsと同等の使用感を得ることができます。
 
-The Blitz zero-API data layer is unique to Blitz. So if switching to
-Next.js, you'd have to manage your own API code (which you would have to
-do if you started with Next.js, so you haven't lost anything). However,
-all your backend query and mutation logic can be directly ported.
+Blitz zero-API data layerもBlitz特有のものです。Next.jsに切り替える場合、自分専用のAPIコードを管理する必要があります。（Next.jsを始めるならデータ損失をしないために必ず実施する必要があります。）しかしながら、すべてのバックエンドクエリやミューテーションロジックが直接ポートされる可能性があります。
 
-## Next.js Upgrades {#next-js-upgrades}
+## Next.js のアップグレード {#next-js-upgrades}
 
-If you want to be on the bleeding edge of Next.js releases, know that
-Blitz will be slightly behind but not far. Usually we update Blitz within
-a week or less of a new Next.js release.
+もしあなたが最新のNext.jsリリースを使用したい場合は、Blitzが古すぎる事はありませんが若干古いということを認識しておいてください。大抵Blitzは新しいNext.jsリリースの一週間以内にアップデートされます。
 
-But if you use yarn, you can use the `resolutions` field in package.json
-to upgrade next.js before we do.
+ですがもしyarnを使用する場合は、package.json内のresolutionsフィールドを使ってnext.jsのアップグレードを先行して実施できます。
 
-## Multi-Client API {#multi-client-api}
+## マルチクライアント API {#multi-client-api}
 
-Some folks say, "you'll eventually need GraphQL so you should start with
-it". While we believe most apps won't grow large enough to warrant
-GraphQL, the question of an API for multiple clients is an excellent
-point.
+「最終的にGraphQLが必要になるのだから、GraphQLから着手すべきだ」という人がいます。確かに多くのアプリはGraphQLを保証するほど大きく成長しませんが、複数のクライアントのためのAPIに関する疑問はいい問題です。
 
-We fully acknowledge that many web apps will need a mobile app sooner or
-later. And we want to make this integration as simple as possible!
+私たちは多くのウェブアプリにはモバイル版アプリが遅かれ早かれ必要であることを認識しています。そして私たちはこの結合をできるだけシンプルにしたいと考えています！
 
-That said, you can add a GraphQL server to your Blitz app for other
-clients. This can be an excellent choice and some folks are doing this.
+ですので、Blitzでは他のクライアントのためにGraphQLサーバーをあなたのBlitzsアプリに追加することができます。これは素晴らしい選択で、実践している人もいます。
 
-**Currently, as of Feb 17, 2021:**
+**現在（2021 年２月１７日時点で)**
 
-- You can directly access the auto-generated API endpoints and you can use
-  them in any mobile app (we currently have a few people doing this)
-- You can see all generated endpoints in your app using
-  [`blitz routes`](./cli-routes) command
-- You can see the RPC specification for the endpoints here:
-  [RPC Specification](./rpc-specification)
+- 自動生成されたAPIエンドポイントに直接アクセスし、どのモバイルアプリでも使用することができます（現在数人が実践しています）
+-すべての生成されたエンドポイントはアプリ内の  [`blitz routes`](./cli-routes)  コマンドで確認することができます。
+-エンドポイント用のRPCの仕様はこちらで確認できます:  [RPC Specification](./rpc-specification)
 
-**What we plan to do going forward:**
+**今後の計画について**
 
-1. First step, add docs and tools for making it easier to manually use the
-   generated API endpoints. See
-   https://github.com/blitz-js/blitz/discussions/1907 and
-   https://github.com/blitz-js/blitz/issues/745
-2. Next, add ability to generate a JS/TS client library as a nice way to
-   use the generated endpoints from an app
-3. Next, add some sort of first-class react-native support where you can
-   import blitz queries/mutations directly into your react-native code and
-   have it magically work exactly like it does today with your web app.
-   After the 1.0 release, this will be Brandon's main focus for the year.
+1.まず、生成されたAPIエンドポイントを簡単に手動で使用するために、ドキュメントとツールを追加します。[https://github.com/blitz-js/blitz/discussions/1907](https://github.com/blitz-js/blitz/discussions/1907)   と [https://github.com/blitz-js/blitz/issues/745](https://github.com/blitz-js/blitz/issues/745) をご覧ください。
+2. 次に、生成されたエンドポイントをアプリから使う良い方法として、JS/TSクライアントライブラリを生成する機能を追加する。
+3. 次に、blitzクエリやミューテーションをreact-nativeのコードに直接インポートでき、魔法のようにウェブアプリと全く同じように動かせる、一流のreact-nativeのサポートを追加する。1.0リリースの後に、これがBrandonさんの今年の主な目標となります。
 
-## Advanced Backend Architecture {#advanced-backend-architecture}
+## 高度なバックエンドアーキテクチャ {#advanced-backend-architecture}
 
-Currently Blitz is fairly minimal on backend architecture, especially
-compared so something like Nest.js or AdonisJs. However, that doesn't mean
-you can't use those patterns in Blitz, it means you have to set it up
-yourself. In fact you can use Nest.js in your Blitz app if you need.
+現在、Blitzはバックエンドアーキテクチャにおいて、特にNest.jsやAdonisJsと比較するとかなり最小限です。しかし、それはBlitzにそのパターンが使えないという事ではなく、自分自身でセットアップする必要があるという事です。実際にBlitzアプリの中でNest.jsを使うことも可能です。
 
-But we are very interested in bringing more advanced backend architectures
-to Blitz by default or via simple opt-in. We have an
-[ongoing discussion](https://github.com/blitz-js/blitz/discussions/1841)
-that we'd love you to chime in on if you have ideas.
+ですが私たちはデフォルトやシンプルなオプトイン経由でBlitzにさらに進歩したバックエンドアーキテクチャを作成することにとても関心があります。こちらに  [協議中の議題](https://github.com/blitz-js/blitz/discussions/1841) がありますので、アイデアがありましたら是非教えてください
 
-## Single Threaded When Not Deployed Serverless {#single-threaded-when-not-deployed-serverless}
+## サーバーレスでない場合、シングルスレッドで稼働 {#single-threaded-when-not-deployed-serverless}
 
-This is a tradeoff of Next.js specifically. Next.js is single threaded
-which means if you are doing heavy backend processing you may notice that
-all web requests begin to suffer. The solution to this is spawning
-background processing off into other processes.
-
-Running multiple background processes isn't super difficult, but we want
-to add docs and APIs that make this as simple as possible.
+これは特にNext.jsで失うものです。Next.jsはシングルスレッドですので、負荷の大きいバックエンド処理中の場合はすべてのウェブリクエストにも影響する可能性があります。これに対する解決法はバックグラウンド処理をオフにし他のプロセスを発生させることです。
+複数のバックグラウンド処理を実行することは特別難しいわけではありませんが、私たちはこれをできる限り神父巣にするためのドキュメントやAPIを追加したいと考えています。
