@@ -54,9 +54,15 @@ const Home = ({randomContributors}) => {
                     The Fullstack React Framework
                   </h2>
                   <p className="text-lg xl:text-xl xl:font-medium text-off-white lg:text-transparent lg:bg-clip-text lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue xl:w-4/5">
+<<<<<<< HEAD
                     Blitz は Ruby on Rails にインスパイアされた、 Next.js上に構築されている、
                     REST/GraphQL を必要としない “Zero-API” Dataレイヤーを特徴とした
                     パワフルなフレームワークです。
+=======
+                    Blitz is a batteries-included framework that&apos;s inspired by Ruby on Rails,
+                    is built on Next.js, and features a &quot;Zero-API&quot; data layer abstraction
+                    that eliminates the need for REST/GraphQL.
+>>>>>>> ff854e245743eb09067aa71206019988d0ea80bb
                   </p>
                   <div className="flex space-x-4">
                     <ButtonLink className="w-2/3 lg:w-auto rounded-tl-xl" href="/docs/get-started">
@@ -161,8 +167,13 @@ const Home = ({randomContributors}) => {
                         しかし、道を逸れたいときには100%自由に行動できます。
                       </p>
                       <p>
+<<<<<<< HEAD
                         ほぼすべてがプラグイン可能です。
                         例えば、スタイリングやフォームライブラリはどれを使うか強制するものはありません。
+=======
+                        And nearly everything is pluggable. For example, we don&apos;t mandate which
+                        styling or form libraries you use.
+>>>>>>> ff854e245743eb09067aa71206019988d0ea80bb
                       </p>
                     </Feature>
                     <Feature title="設定より規約">
@@ -183,8 +194,13 @@ const Home = ({randomContributors}) => {
                     </Feature>
                     <Feature title="安定性">
                       <p>
+<<<<<<< HEAD
                         バージョン1.0に到達したら、リリースサイクルを安定した予測可能なものに切り替え、
                         安定版 / LTS / ベータ版などの複数チャンネルを用意します。
+=======
+                        Once we reach version 1.0, we&apos;ll switch to a stable, predictable
+                        release cycle with multiple channels like stable, LTS, and beta.
+>>>>>>> ff854e245743eb09067aa71206019988d0ea80bb
                       </p>
                       <p>この点については、Emberから多くのインスピレーションを得ています。</p>
                     </Feature>
@@ -205,7 +221,12 @@ const Home = ({randomContributors}) => {
                   href="https://codesandbox.io/s/flamboyant-meninsky-j63yq?file=/app/projects/mutations/createProject.ts"
                   className="h-sandbox xl:h-xl-sandbox block relative"
                 >
-                  <Image src="/img/sandbox-pic.png" layout="fill" className="object-cover" />
+                  <Image
+                    src="/img/sandbox-pic.png"
+                    layout="fill"
+                    className="object-cover"
+                    alt="Codesandbox placeholder"
+                  />
                   <div className="absolute inset-0 bg-gray-800 opacity-0 hover:opacity-70 flex items-center justify-center text-white text-6xl font-bold">
                     Click to Open in New Tab
                   </div>
@@ -226,7 +247,10 @@ const Home = ({randomContributors}) => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <img
+                      <Image
+                        layout="intrinsic"
+                        width="100%"
+                        height="100%"
                         src={contributor.avatar_url}
                         alt={contributor.name}
                         title={contributor.name}
@@ -273,7 +297,11 @@ const Home = ({randomContributors}) => {
                       私たちは一緒に働くことが大好きです。
                     </p>
                     <p className="lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue lg:bg-clip-text">
+<<<<<<< HEAD
                       Blitzを最高のフレームワークにするため、ぜひあなたの力を貸してください！
+=======
+                      We invite you to help make Blitz the best framework we&apos;ve ever had!
+>>>>>>> ff854e245743eb09067aa71206019988d0ea80bb
                     </p>
                   </div>
                   <Link href="/docs/contributing" passHref>
