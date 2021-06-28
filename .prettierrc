@@ -2,5 +2,20 @@
   "semi": false,
   "printWidth": 100,
   "bracketSpacing": false,
+<<<<<<< HEAD
   "trailingComma": "all"
+=======
+  "trailingComma": "all",
+  "overrides": [
+    {
+      "files": "*.mdx",
+      "options": {
+        "printWidth": 74,
+        "proseWrap": "always",
+        "bracketSpacing": true,
+        "trailingComma": "es5"
+      }
+    }
+  ]
+>>>>>>> ff854e245743eb09067aa71206019988d0ea80bb
 }
