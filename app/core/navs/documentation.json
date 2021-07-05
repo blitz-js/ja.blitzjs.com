@@ -32,12 +32,16 @@
     "pages": [
       "file-structure",
       "app-component",
+      "image-component",
+      "script-component",
       "css",
-      "image-optimization",
+      "font-optimization",
       "static-files",
       "environment-variables",
       "error-handling",
-      "testing"
+      "error-boundary",
+      "testing",
+      "utilities"
     ]
   },
   {
@@ -48,7 +52,6 @@
     },
     "pages": [
       "pages",
-      "redirects",
       "error-pages",
       "head-component",
       "document-component",
@@ -73,8 +76,12 @@
       "link",
       "route-params-query",
       "router",
+      "redirects",
+      "rewrites",
+      "headers",
       "api-routes",
-      "shallow-routing"
+      "shallow-routing",
+      "route-manifest"
     ]
   },
   {
@@ -125,7 +132,13 @@
       "iconPath": "/img/mutations.svg",
       "iconDarkPath": "/img/mutations-white.svg"
     },
-    "pages": ["background-processing-with-quirrel", "middleware", "custom-server"]
+    "pages": [
+      "multitenancy",
+      "background-processing-with-quirrel",
+      "middleware",
+      "custom-server",
+      "security-headers"
+    ]
   },
   {
     "title": {
@@ -133,7 +146,7 @@
       "iconPath": "/img/deploying-to-production.svg",
       "iconDarkPath": "/img/deploying-to-production-white.svg"
     },
-    "pages": ["deploy-render", "deploy-heroku", "deploy-vercel"]
+    "pages": ["deploy-render", "deploy-heroku", "deploy-vercel", "deploy-railway"]
   },
   {
     "title": {
@@ -153,6 +166,9 @@
       "blitz-config",
       "webpack-config",
       "postcss-config",
+      "eslint-config",
+      "husky-config",
+      "prettier-config",
       "rpc-specification",
       "measuring-performance"
     ]
@@ -173,6 +189,7 @@
       "cli-db",
       "cli-prisma",
       "cli-generate",
+      "cli-codegen",
       "cli-console",
       "cli-install",
       "cli-autocomplete",
